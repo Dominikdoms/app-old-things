@@ -23,7 +23,7 @@ export const HomeHeader = () => {
                         <li className={"header__registration-btn"}><Link to="/rejestracja">Załóż konto</Link></li>
                     </ul>
                     <ul className={"header__navigation"}>
-                        <li><LinkScroll to="" smooth={true} duration={1000}>Start</LinkScroll></li>{/*to="ID"*/}
+                        <li><LinkScroll to="/steps" smooth={true} duration={1000}>Start</LinkScroll></li>{/*to="ID"*/}
                         <li><LinkScroll to="" smooth={true} duration={1000}>O co chodzi?</LinkScroll></li>
                         <li><LinkScroll to="" smooth={true} duration={1000}>O nas</LinkScroll></li>
                         <li><LinkScroll to="" smooth={true} duration={1000}>Fundacja i Organizacje</LinkScroll></li>

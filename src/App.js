@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import './../src/sass/main.scss';
 import {Home} from "./components/Home";
+import {SimpleSteps} from "./components/simple-steps"
 
 function App() {
     return (
@@ -13,7 +14,9 @@ function App() {
             <>
                 <Switch>
                     <Route path="/"><Home/></Route>
+                    {/*<Route path="/"><SimpleSteps/></Route>*/}{/*dziwne, ze to nie działa*/}
                 </Switch>
+                <SimpleSteps/>
             </>
         </BrowserRouter>
     );
