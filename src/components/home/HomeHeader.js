@@ -14,7 +14,7 @@ export const HomeHeader = () => {
         <header className={"header"}>
             <div className={"header__container container"}>
                 <section className="header__img">
-                    <img src={HeroImage}/>
+                    <img alt={"things"} src={HeroImage}/>
                 </section>
 
                 <section className={"header__start"}>
