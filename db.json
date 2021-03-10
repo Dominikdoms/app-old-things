@@ -1,0 +1,116 @@
+{
+  "fundation": [
+    {
+      "id": 1,
+      "name": "Dbam o zdrowie1",
+      "target": "Pomoc osobą znajdujących się w trudnej sytuacji zyciowej.",
+      "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+    },
+    {
+      "id": 2,
+      "name": "Dla dzieci2",
+      "target": "Pomoc dzieciom z ubogich rodzin.",
+      "things": "ubrania, meble, zabawki"
+    },
+    {
+      "id": 3,
+      "name": "Bez domu3",
+      "target": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+      "things": "ubrania, jedzenie, ciepłe koce"
+    },
+    {
+      "id": 4,
+      "name": "Dbam o zdrowie4",
+      "target": "Pomoc osobą znajdujących się w trudnej sytuacji zyciowej.",
+      "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+    },
+    {
+      "id": 5,
+      "name": "Dla dzieci5",
+      "target": "Pomoc dzieciom z ubogich rodzin.",
+      "things": "ubrania, meble, zabawki"
+    },
+    {
+      "id": 6,
+      "name": "Bez domu6",
+      "target": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+      "things": "ubrania, jedzenie, ciepłe koce"
+    },
+    {
+      "id": 7,
+      "name": "Dbam o zdrowie7",
+      "target": "Pomoc osobą znajdujących się w trudnej sytuacji zyciowej.",
+      "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+    },
+    {
+      "id": 8,
+      "name": "Bez domu8",
+      "target": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+      "things": "ubrania, jedzenie, ciepłe koce"
+    },
+    {
+      "id": 9,
+      "name": "Dbam o zdrowie9",
+      "target": "Pomoc osobą znajdujących się w trudnej sytuacji zyciowej.",
+      "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+    }
+  ],
+  "organization": [
+    {
+      "id": 1,
+      "name": "Lorem ipsum 1",
+      "target": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+    },
+    {
+      "id": 2,
+      "name": "Lorem ipsum 2",
+      "target": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+    },
+    {
+      "id": 3,
+      "name": "Lorem ipsum 3",
+      "target": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+    },
+    {
+      "id": 4,
+      "name": "Lorem ipsum 4",
+      "target": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+    },
+    {
+      "id": 5,
+      "name": "Lorem ipsum 5",
+      "target": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+    },
+    {
+      "id": 6,
+      "name": "Lorem ipsum 6",
+      "target": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+    }
+  ],
+  "collection": [
+    {
+      "id": 1,
+      "name": "Lorem ipsum 1",
+      "target": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      "things": "asdsgsa, jeddssdzenie, dsag AGD, dassad, adgda"
+    },
+    {
+      "id": 2,
+      "name": "Lorem ipsum 2",
+      "target": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      "things": "hfjhgj, kkkjgh, jlgh hgf, fghk, afsdh"
+    },
+    {
+      "id": 3,
+      "name": "Lorem ipsum 3",
+      "target": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      "things": "sdgfd, dsgsdg, dgsd AGD, meble, dsfgdsgsd"
+    }
+  ]
+}
