@@ -1,0 +1,103 @@
+@import "../sass/settings/fonts";
+@import "../sass/settings/colors";
+.steps{
+  width: 100%;
+  height: 624px;
+  padding-top: 55px;
+
+  &__header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 38px;
+    font-family: $font-base;
+
+    &::after {
+      position: relative;
+      content: "";
+      display: block;
+      width: 256px;
+      height: 30px;
+      background-image: url("../assets/Decoration.svg");
+      background-repeat: no-repeat;
+      margin: 0 auto;
+      top: 18px;
+      padding-bottom: 33px;
+    }
+  }
+
+  &__four{
+    height: 325px;
+    background-color: $color-light-gray;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 19%;
+    align-items: center;
+  }
+
+  &__one{
+    width: 128px;
+    height: 178px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: $font-base;
+    font-size: 16px;
+    justify-content: flex-end;
+
+    p{
+      text-align: center;
+    }
+    span{
+      width: 62px;
+      margin: 10px;
+      height: 1px;
+      background-color: black;
+    }
+  }
+
+  .shirt{
+      &::before{
+        content: url("../assets/shirt-icon.png");
+        padding-bottom: 8px;
+      }
+  }
+
+  .bag{
+    &::before {
+      content: url("../assets/bag-Icon.png");
+      padding-bottom: 8px;
+    }
+  }
+
+  .magnifier{
+    &::before{
+      content: url("../assets/magnifier-Icon.png");
+      padding-bottom: 8px;
+    }
+  }
+
+  .movement{
+    &::before{
+      content: url("../assets/movement-Icon.png");
+      padding-bottom: 8px;
+    }
+  }
+
+  &__button{
+    height: 155px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  &__btn{
+    width: 310px;
+    height: 120px;
+    border: 1px solid black;
+    font-size: 36px;
+    background: none;
+    font-weight: 300;
+    color: $color-dark-brown;
+  }
+}
+
