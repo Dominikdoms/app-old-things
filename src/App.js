@@ -7,6 +7,7 @@ import {
 import './../src/sass/main.scss';
 import {Home} from "./components/Home";
 import {SimpleSteps} from "./components/simple-steps"
+import {AboutUs} from "./components/about-us"
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     {/*<Route path="/"><SimpleSteps/></Route>*/}{/*dziwne, ze to nie działa*/}
                 </Switch>
                 <SimpleSteps/>
+                <AboutUs/>
             </>
         </BrowserRouter>
     );
