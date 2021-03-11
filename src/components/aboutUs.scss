@@ -1,11 +1,18 @@
 @import "../sass/settings/colors";
 @import "../sass/settings/fonts";
 
+
 .about {
   width: 100%;
+  margin: 0 auto;
   height: 935px;
   background-color: $color-light-gray;
   display: flex;
+
+  .container{
+    max-width: 1900px;
+    height: 935px;
+  }
 
   &__text {
     width: 50%;
@@ -50,5 +57,12 @@
   &__image {
     width: 50%;
     height: 100%;
+  }
+
+  &__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0 10%;
   }
 }
