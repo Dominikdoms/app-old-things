@@ -1,9 +1,12 @@
-import React from "react"
+import React, {useState} from "react"
 import './pagination.scss'
-import clc from "classnames"
+import clx from "classnames"
 
 
 export const Pagination = ({postsPerPage, totalPosts, paginate}) => {
+
+    const [current, setCurrent] = useState(1)
+        console.log(current)
 
     const pageNumbers = [];//indexy postów
 
@@ -11,9 +14,8 @@ export const Pagination = ({postsPerPage, totalPosts, paginate}) => {
         pageNumbers.push(i)
     }
 
-    // console.log(pageNumbers)
-    // console.log(`totalPost: ${totalPosts}`)
-    // console.log(`postPerPage: ${postsPerPage}`)
+
+
 
     return (
         <nav>
@@ -21,7 +23,9 @@ export const Pagination = ({postsPerPage, totalPosts, paginate}) => {
                 {pageNumbers.length === 1 ? ('') : (
                     pageNumbers.map(number => (
                         <li key={number} className={"pagination__page-item"}>
-                            <button onClick={() => paginate(number)} className={"pagination__page-btn"}>
+                            <button onClick={() => {paginate(number)
+                                setCurrent(number)}}
+                                    className={clx({active: current === number})}>
                                 {number}
                             </button>
                         </li>
