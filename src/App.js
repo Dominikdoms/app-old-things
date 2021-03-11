@@ -9,6 +9,7 @@ import {Home} from "./components/Home";
 import {SimpleSteps} from "./components/simpleSteps"
 import {AboutUs} from "./components/about-us"
 import {WhoWeHelp} from "./components/whoWeHelp";
+import {ContactAndFooter} from "./components/ContactAndFooter/contactAndFooter"
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                 <SimpleSteps/>
                 <AboutUs/>
                 <WhoWeHelp/>
+                <ContactAndFooter/>
             </>
         </BrowserRouter>
     );

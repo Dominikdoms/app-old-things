@@ -27,7 +27,7 @@ export const HomeHeader = () => {
                         <li><LinkScroll to="steps" smooth={true} duration={1000}>O co chodzi?</LinkScroll></li>
                         <li><LinkScroll to="aboutUs" smooth={true} duration={1000}>O nas</LinkScroll></li>
                         <li><LinkScroll to="fundations" smooth={true} duration={1000}>Fundacja i Organizacje</LinkScroll></li>
-                        <li><LinkScroll to="" smooth={true} duration={1000}>Kontakt</LinkScroll></li>
+                        <li><LinkScroll to="contact" smooth={true} duration={1000}>Kontakt</LinkScroll></li>
                     </ul>
 
                     <section className={"header__give-things"}>
