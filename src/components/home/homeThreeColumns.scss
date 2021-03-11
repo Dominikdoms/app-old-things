@@ -2,9 +2,14 @@
 .home__tree-column{
   width: 100%;
   height: 384px;
-  display: flex;
-  justify-content: space-around;
   background-image: url("../../assets/3 Columns Background.png");
+
+  .container{
+    margin: 0 auto;
+    max-width: 1900px;
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 .home__column{

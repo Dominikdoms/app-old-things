@@ -3,6 +3,7 @@
 .header {
   position: relative;
   display: flex;
+  width: 100%;
 
   &__registration-btn{
     padding: 11px;
@@ -10,9 +11,9 @@
   }
 
   &__container {
-    width: 100%;
+    margin: 0 auto;
+    max-width: 1900px;
     height: 963px;
-    //background-color: #b6b9d9;
     display: flex;
   }
 
@@ -22,8 +23,10 @@
     position: relative;
 
     img {
-      position: relative;
-      left: -52%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 107% 10%;
     }
   }
 
