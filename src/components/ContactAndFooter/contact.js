@@ -1,5 +1,6 @@
 import React from "react"
 import "./contact.scss"
+import {Footer} from "./footer"
 
 export const Contact = () => {
 
@@ -28,7 +29,6 @@ export const Contact = () => {
                                    className="contact__email"
                                    placeholder={"abc@xyz.pl"}/>
                         </div>
-                        {/*<div className={"contact__form-desc-area"}>*/}
                         <p className={"contact__form-desc-area"}>Wpisz swoją wiadomość</p>
                         <textarea
                             placeholder={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
@@ -38,6 +38,17 @@ export const Contact = () => {
                         </div>
                     </form>
                 </div>
+                <Footer/>
+
+                {/*<div className={""}>*/}
+                {/*    <p>Copyright by Coders Lab</p>*/}
+
+                {/*    <div>*/}
+                {/*        pp pp*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
+
             </div>
         </section>
     )
