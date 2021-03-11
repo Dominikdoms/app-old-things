@@ -18,8 +18,8 @@
   }
 
   h2 {
-    padding-top: 70px;
-    padding-bottom: 120px;
+    padding-top: 40px;
+    padding-bottom: 54px;
     font-size: 38px;
     color: $color-dark-brown;
     display: flex;
@@ -29,7 +29,7 @@
     &::after {
       content: url("../assets/Decoration.svg");
       position: relative;
-      top: 44px;
+      top: 24px;
     }
   }
 
@@ -69,8 +69,8 @@
   p {
     width: 640px;
     height: 94px;
-    padding-top: 30px;
-    padding-bottom: 66px;
+    padding-top: 24px;
+    padding-bottom: 58px;
     font-size: 22px;
     line-height: 30px;
     text-align: center;

@@ -1,12 +1,25 @@
 import React, {useState, useEffect} from "react";
 import clx from 'classnames';
 import './whoWeHelp.scss'
+import {Pagination} from "./whoWeHelp/pagination";
 
 export const WhoWeHelp = () => {
     const API = "http://localhost:3000/"
     const [organizations, setOrganizations] = useState([]);
     const [current, setCurrent] = useState('fundation');
-    const [fundations, setFundations] = useState('')
+    const [fundations, setFundations] = useState([])
+
+    //Pagination
+    const [currentPage, setCurrentPage] = useState(1);//obecna strona
+    const [postsPerPage] = useState(3)//ile postów na stronie
+
+    //Get current posts
+    const indexOfLastPost = currentPage * postsPerPage //index ostatniego posta
+    const indexOfFirstPost = indexOfLastPost - postsPerPage //index pierwszego posta
+    const currentPosts = organizations.slice(indexOfFirstPost, indexOfLastPost)//obecny post
+
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     const handleCurrent = e => {
         const {id} = e.target;
@@ -18,6 +31,7 @@ export const WhoWeHelp = () => {
             .then(response => response.json())
             .then(data => {
                 setOrganizations(data)
+                console.log(data.length)
             })
             .catch(err => console.log(err))
 
@@ -54,7 +68,8 @@ export const WhoWeHelp = () => {
                     czym
                     się zajmują, komu pomagają i czego potrzebują.</p>
                 <ul className={"fundations__all"}>{
-                    organizations.map(el => (
+                    // organizations.map(el => (
+                    currentPosts.map(el => (
                         <section key={el.id} className={"fundations__list"}>
                             <div className={"fundations__list-items"}>
                                 <li className={"fundations__list-items-name"}>{`${fundations} "${el.name}"`}</li>
@@ -64,6 +79,7 @@ export const WhoWeHelp = () => {
                         </section>
                     ))
                 }</ul>
+                <Pagination postsPerPage={postsPerPage} totalPosts={organizations.length} paginate={paginate} />
             </div>
         </section>
     )
