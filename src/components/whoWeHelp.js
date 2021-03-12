@@ -23,6 +23,7 @@ export const WhoWeHelp = () => {
 
     const handleCurrent = e => {
         const {id} = e.target;
+        setCurrentPage(1)
         setCurrent(id)
     }
 
@@ -79,7 +80,7 @@ export const WhoWeHelp = () => {
                         </section>
                     ))
                 }</ul>
-                <Pagination postsPerPage={postsPerPage} totalPosts={organizations.length} paginate={paginate} />
+                <Pagination postsPerPage={postsPerPage} totalPosts={organizations.length} paginate={paginate} current={currentPage}/>
             </div>
         </section>
     )

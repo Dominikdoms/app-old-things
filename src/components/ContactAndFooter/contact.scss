@@ -29,7 +29,8 @@
   }
 
   &__content {
-    width: 528px;//do poprawy
+    max-width: 528px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

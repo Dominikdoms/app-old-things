@@ -1,24 +1,15 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import './pagination.scss'
 import clx from "classnames"
 
 
-export const Pagination = ({postsPerPage, totalPosts, paginate}) => {
-
-    const [current, setCurrent] = useState(1)
-    // console.log(current)
+export const Pagination = ({postsPerPage, totalPosts, paginate, current}) => {
 
     const pageNumbers = [];//indexy postów
 
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
         pageNumbers.push(i)
     }
-
-
-    // useEffect(() => {
-        //if pageNumbers.length === 1 - set pagination on First pages
-        pageNumbers.length === 1 && (paginate(1))
-    // }, [current])
 
 
     return (
@@ -30,7 +21,6 @@ export const Pagination = ({postsPerPage, totalPosts, paginate}) => {
                         <li key={number} className={"pagination__page-item"}>
                             <button onClick={() => {
                                 paginate(number);
-                                setCurrent(number)
                             }}
                                     className={clx({active: current === number})}>
                                 {number}
