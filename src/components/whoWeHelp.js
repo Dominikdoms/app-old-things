@@ -31,7 +31,7 @@ export const WhoWeHelp = () => {
             .then(response => response.json())
             .then(data => {
                 setOrganizations(data)
-                console.log(data.length)
+                // console.log(data.length)
             })
             .catch(err => console.log(err))
 
