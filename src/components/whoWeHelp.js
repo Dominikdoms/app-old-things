@@ -4,6 +4,11 @@ import './whoWeHelp.scss'
 import {Pagination} from "./whoWeHelp/pagination";
 
 export const WhoWeHelp = () => {
+
+    // https://react-hook-form.com/get-started#SchemaValidation
+    // Step 2: Prepare your schema for validation and register inputs with React Hook Form.
+
+
     const API = "http://localhost:3000/"
     const [organizations, setOrganizations] = useState([]);
     const [current, setCurrent] = useState('fundation');
