@@ -12,6 +12,7 @@ import {WhoWeHelp} from "./components/whoWeHelp";
 import {ContactAndFooter} from "./components/ContactAndFooter/contactAndFooter"
 import {Login} from "./components/login";
 import {Register} from "./components/register";
+import {LogOut} from "./components/logOut";
 
 function App() {
     return (
@@ -27,6 +28,7 @@ function App() {
                     </Route>
                     <Route path="/logowanie" exact component={Login}/>
                     <Route path="/rejestracja" exact component={Register}/>
+                    <Route path="/wylogowano" exact component={LogOut}/>
                 </Switch>
             </>
         </BrowserRouter>
