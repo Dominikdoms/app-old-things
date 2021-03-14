@@ -1,0 +1,151 @@
+@import "../sass/settings/colors";
+@import "../sass/settings/fonts";
+
+.navigation {
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  &__registration-btn {
+    padding: 11px;
+    border: 1px solid $color-yellow;
+  }
+
+  &__container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1900px;
+    height: 963px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+
+
+  &__start {
+    //width: 50%;
+    width: 39%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    height: 130px;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .navigation__login {
+      width: 100%;
+      max-width: 196px;
+      padding: 24px 52px 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      a {
+        color: $color-gray;
+      }
+    }
+
+    .navigation__nav {
+      width: 100%;
+      height: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 52px;
+
+      li {
+        padding: 10px;
+
+        &:hover {
+          cursor: pointer;
+          padding: 9px;
+          border: 1px solid $color-gray;
+        }
+      }
+    }
+  }
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+
+  h1 {
+    font-size: 36px;
+    font-family: $font-base;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px;
+
+    &::after {
+      content: url("../assets/Decoration.svg");
+      padding-top: 35px;
+      padding-bottom: 35px;
+    }
+  }
+
+  &__inputs {
+    height: 293px;
+    width: 370px;
+    background: $color-light-gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    p {
+      font-family: $font-base;
+    }
+
+    input {
+      padding-top: 5px;
+      border: none;
+      opacity: 100%;
+      background: rgba(255, 255, 255, 0);
+    }
+
+    span {
+      margin-top: 5px;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: black;
+    }
+  }
+}
+
+.register__buttons {
+  display: flex;
+  width: 100%;
+  max-width: 519px;
+  justify-content: space-between;
+  align-self: center;
+  padding-top: 60px;
+
+  .btn-login {
+    width: 130px;
+    height: 50px;
+    background: none;
+    border: none;
+
+    &:hover {
+      border: 1px solid $color-gray;
+    }
+  }
+
+  .btn-register {
+    width: 130px;
+    height: 50px;
+    background: none;
+    border: none;
+
+    &:hover {
+      border: 1px solid $color-gray;
+    }
+  }
+}

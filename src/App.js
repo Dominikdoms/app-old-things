@@ -11,6 +11,7 @@ import {AboutUs} from "./components/about-us"
 import {WhoWeHelp} from "./components/whoWeHelp";
 import {ContactAndFooter} from "./components/ContactAndFooter/contactAndFooter"
 import {Login} from "./components/login";
+import {Register} from "./components/register";
 
 function App() {
     return (
@@ -24,7 +25,8 @@ function App() {
                         <WhoWeHelp/>
                         <ContactAndFooter/>
                     </Route>
-                    <Route exact component={Login}/>
+                    <Route path="/logowanie" exact component={Login}/>
+                    <Route path="/rejestracja" exact component={Register}/>
                 </Switch>
             </>
         </BrowserRouter>
