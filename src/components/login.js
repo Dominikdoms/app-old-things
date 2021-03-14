@@ -31,9 +31,7 @@ export const Login = () => {
                     <header>
                         <h1>Zaloguj się</h1>
                     </header>
-
                     <div className={"login__inputs"}>
-
                         <div>
                             <p>Email</p>
                             <input type="text"/>
@@ -44,11 +42,12 @@ export const Login = () => {
                             <input type="text"/>
                             <span/>
                         </div>
-
                     </div>
                 </section>
-
-
+                <section className={"buttons"}>
+                    <button className={"btn-login"}>Załóż konto</button>
+                    <button className={"btn-register"}>Zaloguj się</button>
+                </section>
             </div>
         </nav>
     )

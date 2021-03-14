@@ -12,6 +12,7 @@
   }
 
   &__container {
+    margin: 0 auto;
     width: 100%;
     max-width: 1900px;
     height: 963px;
@@ -88,7 +89,7 @@
     }
   }
 
-  &__inputs{
+  &__inputs {
     height: 237px;
     width: 370px;
     background: $color-light-gray;
@@ -97,21 +98,54 @@
     justify-content: space-evenly;
     align-items: center;
 
-    p{
+    p {
       font-family: $font-base;
     }
-    input{
+
+    input {
       padding-top: 5px;
       border: none;
       opacity: 100%;
       background: rgba(255, 255, 255, 0);
     }
-    span{
+
+    span {
       margin-top: 5px;
       display: block;
       height: 1px;
       width: 100%;
       background-color: black;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  max-width: 519px;
+  justify-content: space-between;
+  align-self: center;
+  padding-top: 60px;
+
+  .btn-login {
+    width: 130px;
+    height: 50px;
+    background: none;
+    border: none;
+
+    &:hover {
+      border: 1px solid $color-gray;
+    }
+  }
+
+  .btn-register {
+    width: 130px;
+    height: 50px;
+    background: none;
+    border: none;
+
+    &:hover {
+      border: 1px solid $color-gray;
     }
   }
 }
