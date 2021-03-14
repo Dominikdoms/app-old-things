@@ -16,14 +16,18 @@ const schema = yup.object().shape({
 });
 
 export const Contact = () => {
-    // https://react-hook-form.com/get-started#SchemaValidation
-    // Step 2: Prepare your schema for validation and register inputs with React Hook Form.
+    //Value of form
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
+
+    const [success, setSuccess] = useState('')
+
 
     const {register, handleSubmit, errors} = useForm({
         resolver: yupResolver(schema)
     });
 
-    const [success, setSuccess] = useState('')
 
     const API = "https://fer-api.coderslab.pl/v1/portfolio/contact"
 
@@ -31,11 +35,29 @@ export const Contact = () => {
         console.log(data);
         setSuccess(`Wiadomość została wysłana! Wkrótce się skontaktujemy.`)
 
+        const newMessage = {
+            name,
+            email,
+            message
+        };
+
+        fetch(`${API}`, {
+            method: "POST",
+            body: JSON.stringify(newMessage),
+            headers: {
+                "Content-type": "application/json"
+            }
+        })
+            .then(response => response.json)
+            .then(data => {
+                console.log(data)
+            })
+            .catch(err => console.log(err))
 
 
-
-
-
+        setName('');
+        setEmail('');
+        setMessage('');
     }
 
     return (
@@ -53,18 +75,20 @@ export const Contact = () => {
                         </div>
                         <div className={"contact__form-inputs"}>
                             <input type="text" name="userName" ref={register}
+                                   value={name}
+                                   onChange={e => setName(e.target.value)}
                                    className="contact__name"
                                    placeholder={"Krzysztof"}
                             />
                             <input type="text"
                                    name={"email"}
                                    ref={register}
+                                   value={email}
+                                   onChange={e => setEmail(e.target.value)}
                                    className="contact__email"
                                    placeholder={"abc@xyz.pl"}/>
                         </div>
                         <div className={"contact__errors"}>
-                            {/*{errors.userName?.message && <p className={"contact__errors-name"}>{errors.userName?.message}</p>}*/}
-                            {/*{errors.email?.message && <p className={"contact__errors-email"}>{errors.email?.message}</p>}*/}
                             <p className={"contact__errors-name"}>{errors.userName?.message}{errors.userName?.message &&
                             <span/>}</p>
                             <p className={"contact__errors-email"}>{errors.email?.message}{errors.email?.message &&
@@ -74,9 +98,11 @@ export const Contact = () => {
                         <textarea
                             name={"message"}
                             ref={register}
+                            value={message}
+                            onChange={e => setMessage(e.target.value)}
                             placeholder={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
                             className="contact__textarea"/>
-                        {/*{errors.message?.message && <p>Wiadomość musi mieć conajmniej 120 znaków!</p>}*/}
+
                         <p className={"contact__textarea-error"}>{errors.message?.message}{errors.message?.message &&
                         <span/>}</p>
 
