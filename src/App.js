@@ -10,19 +10,22 @@ import {SimpleSteps} from "./components/simpleSteps"
 import {AboutUs} from "./components/about-us"
 import {WhoWeHelp} from "./components/whoWeHelp";
 import {ContactAndFooter} from "./components/ContactAndFooter/contactAndFooter"
+import {Login} from "./components/login";
 
 function App() {
     return (
         <BrowserRouter>
             <>
                 <Switch>
-                    <Route path="/"><Home/></Route>
-                    {/*<Route path="/"><SimpleSteps/></Route>*/}{/*dziwne, ze to nie działa*/}
+                    <Route exact path="/">
+                        <Home/>
+                        <SimpleSteps/>
+                        <AboutUs/>
+                        <WhoWeHelp/>
+                        <ContactAndFooter/>
+                    </Route>
+                    <Route exact component={Login}/>
                 </Switch>
-                <SimpleSteps/>
-                <AboutUs/>
-                <WhoWeHelp/>
-                <ContactAndFooter/>
             </>
         </BrowserRouter>
     );
