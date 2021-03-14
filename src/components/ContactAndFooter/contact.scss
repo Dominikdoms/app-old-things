@@ -43,6 +43,7 @@
     font-size: 38px;
     font-family: $font-base;
     padding-bottom: 96px;
+    //padding-bottom: 44px;
 
     &::after {
       content: url("../../assets/Decoration.svg");
@@ -52,13 +53,22 @@
       bottom: -28px;
     }
   }
+  .contact__success{
+    color: green;
+    font-size: 25px;
+    font-family: $font-base;
+    width: 80%;
+    text-align: center;
+    position: relative;
+    top: -41px;
+  }
 
   &__form {
     display: flex;
     flex-direction: column;
     width: 100%;
 
-    p{
+    p {
       font-family: $font-base;
       font-weight: 600;
       padding-left: 2px;
@@ -67,8 +77,9 @@
 
     &-desc-input {
       display: flex;
-      p{
-        &::after{
+
+      p {
+        &::after {
           content: "";
           display: block;
           width: 245px;
@@ -78,7 +89,8 @@
           bottom: -31px;
         }
       }
-      p:nth-last-child(1){
+
+      p:nth-last-child(1) {
         padding-left: 34px;
       }
     }
@@ -86,53 +98,103 @@
     &-inputs {
       display: flex;
       justify-content: space-between;
-      input{
+
+      input {
         width: 246px;
         border: none;
-        padding-bottom: 30px;
+        padding-bottom: 8px;
         background-color: transparent;
-        &::placeholder{
+
+        &::placeholder {
           font-size: 16px;
           color: $color-placeholder;
         }
+
       }
-      &:nth-last-child(1){
+
+      &:nth-last-child(1) {
         margin-left: 16px;
       }
     }
   }
-
-    .contact__form-desc-area{
-      &::after{
-        content: "";
+  .contact__errors{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    .contact__errors-name {
+      color: red;
+      font-size: 13px;
+      position: relative;
+      span{
         display: block;
-        width: 531px;
         height: 1px;
-        background-color: black;
+        width: 246px;
+        background-color: red;
         position: relative;
-        bottom: -113px;
+        top: -20px;
       }
     }
-
-  &__textarea{
-    width: 100%;
-    height: 97px;
-    resize: none;
-    margin-bottom: 35px;
-    border: none;
-    background-color: transparent;
-    &::placeholder{
-      font-size: 16px;
-      color: $color-placeholder;
+    .contact__errors-email{
+      color: red;
+      font-size: 13px;
+      span{
+        display: block;
+        height: 1px;
+        width: 246px;
+        background-color: red;
+        position: relative;
+        top: -20px;
+      }
     }
   }
 
-  &__buttons{
+  .contact__form-desc-area {
+    &::after {
+      content: "";
+      display: block;
+      width: 531px;
+      height: 1px;
+      background-color: black;
+      position: relative;
+      bottom: -113px;
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+    height: 97px;
+    resize: none;
+    padding-bottom: 8px;
+    border: none;
+    background-color: transparent;
+
+    &::placeholder {
+      font-size: 16px;
+      color: $color-placeholder;
+    }
+
+    &-error{
+      color: red;
+      font-size: 13px;
+      span{
+        display: block;
+        height: 1px;
+        width: 531px;
+        background-color: red;
+        position: relative;
+        top: -18px;
+      }
+    }
+  }
+
+  &__buttons {
     display: flex;
     justify-content: flex-end;
-    &-btn{
+
+    &-btn {
       width: 150px;
       height: 50px;
+      margin-top: 35px;
       border: 1px solid $color-dark-brown;
       background-color: unset;
       font-size: 18px;
