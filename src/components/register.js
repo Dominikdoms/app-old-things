@@ -11,17 +11,13 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-    // email: yup.string().required("Pole nie może być puste!").email("Podany email jest nieprawidłowy!"),
-    // password: yup.string().required("Podane hasło jest za któtkie!").min(6)
     email: yup.string().required("Pole nie może być puste!").email("Podany email jest nieprawidłowy!"),
-    // password: yup.string().required("Podane hasło jest za krótkie!").min(6, "Minimum 6 znaków"),
-    // repeatPassword: yup.string().required("Podane hasło jest za krótkie!").min(6, "Minimum 6 znaków")
     password: yup.string()
-        .min(6, 'Password must be at least 6 characters')
-        .required('Password is required'),
+        .min(6, 'Hasło musi mnieć min 6 znaków')
+        .required('Pole nie może być puste!'),
     confirmPassword: yup.string()
-        .oneOf([yup.ref('password'), null], 'Passwords must match')
-        .required('Confirm Password is required')
+        .oneOf([yup.ref('password'), null], 'Hasło musi być takie samo')
+        .required('Pole nie może być puste!')
 
 })
 
@@ -34,17 +30,15 @@ export const Register = () => {
 
     const {register, handleSubmit, errors} = useForm({
         resolver: yupResolver(schema),
-        // mode: "onChange"
     });
 
 
     const onSubmit = (data) => {
-        console.log(data);
-        console.log("działa");
+        // console.log(data);
 
-
-        // setEmail('')
-        // setPassword('')
+        setEmail('')
+        setPassword('')
+        setConfirmPassword('')
     }
 
 
@@ -81,7 +75,7 @@ export const Register = () => {
                                        name={"email"}
                                        type="text"/>
                                 <span className={clx({error: errors.email})}/>
-                                <p>{errors.email?.message}</p>
+                                <p className={"register__error"}>{errors.email?.message}</p>
                             </div>
                             <div>
                                 <p>Hasło</p>
@@ -89,9 +83,9 @@ export const Register = () => {
                                        value={password}
                                        onChange={e => setPassword(e.target.value)}
                                        name={"password"}
-                                       type="text"/>
+                                       type="password"/>
                                 <span className={clx({error: errors.password})}/>
-                                <p>{errors.password?.message}</p>
+                                <p className={"register__error"}>{errors.password?.message}</p>
                             </div>
                             <div>
                                 <p>Powtórz hasło</p>
@@ -99,9 +93,9 @@ export const Register = () => {
                                        value={confirmPassword}
                                        onChange={e => setConfirmPassword(e.target.value)}
                                        name={"confirmPassword"}
-                                       type="text"/>
+                                       type="password"/>
                                 <span className={clx({error: errors.confirmPassword})}/>
-                                <p>{errors.confirmPassword?.message}</p>
+                                <p className={"register__error"}>{errors.confirmPassword?.message}</p>
                             </div>
                         </div>
                     </section>

@@ -121,6 +121,12 @@
       color: red;
     }
   }
+  &__error{
+    color: red;
+    font-size: 13px;
+    padding-top: 4px;
+    display: block;
+  }
 }
 
 .register__buttons {
