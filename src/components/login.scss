@@ -90,6 +90,9 @@
   }
 
   &__inputs {
+    div{
+      height: 30px;
+    }
     height: 237px;
     width: 370px;
     background: $color-light-gray;
@@ -116,6 +119,22 @@
       width: 100%;
       background-color: black;
     }
+
+    .error{
+      background-color: red;
+    }
+  }
+  &__error-email{
+    color: red;
+    font-size: 13px;
+    padding-top: 4px;
+    display: block;
+  }
+  &__error-password{
+    color: red;
+    font-size: 13px;
+    padding-top: 4px;
+    display: block;
   }
 }
 

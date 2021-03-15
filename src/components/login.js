@@ -1,11 +1,41 @@
-import React from "react";
+import React, {useState} from "react";
 import {
     Link
 } from 'react-router-dom';
 import {Link as LinkScroll} from "react-scroll";
+import clx from "classnames"
 import './login.scss'
+//validation
+import {useForm} from "react-hook-form";
+import {yupResolver} from '@hookform/resolvers/yup';
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+    // email: yup.string().required("Pole nie może być puste!").email("Podany email jest nieprawidłowy!"),
+    // password: yup.string().required("Podane hasło jest za któtkie!").min(6)
+    email: yup.string().required("Pole nie może być puste!").email("Podany email jest nieprawidłowy!"),
+    password: yup.string().required("Podane hasło jest za krótkie!").min(6,"Minimum 6 znaków")
+})
+
 
 export const Login = () => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const {register, handleSubmit, errors} = useForm({
+        resolver: yupResolver(schema)
+    });
+
+
+    const onSubmit = (data) => {
+        console.log(data);
+        console.log("działa");
+
+        // setEmail('')
+        // setPassword('')
+    }
+
 
     return (
         <nav className={"navigation"}>
@@ -26,28 +56,41 @@ export const Login = () => {
                     </ul>
                 </section>
 
-
-                <section className={"login"}>
-                    <header>
-                        <h1>Zaloguj się</h1>
-                    </header>
-                    <div className={"login__inputs"}>
-                        <div>
-                            <p>Email</p>
-                            <input type="text"/>
-                            <span/>
+                <form onSubmit={handleSubmit(onSubmit)} className={"login"}>
+                    <section className={"login"}>
+                        <header>
+                            <h1>Zaloguj się</h1>
+                        </header>
+                        <div className={"login__inputs"}>
+                            <div>
+                                <p>Email</p>
+                                <input ref={register}
+                                       value={email}
+                                       onChange={e => setEmail(e.target.value)}
+                                       name={"email"}
+                                       type="text"/>
+                                <span className={clx({error: errors.email})}/>
+                                <p className={"login__error-email"}>{errors.email?.message}</p>
+                            </div>
+                            <div>
+                                <p>Hasło</p>
+                                <input ref={register}
+                                       value={password}
+                                       onChange={e => setPassword(e.target.value)}
+                                       name={"password"}
+                                       type="password"/>
+                                <span className={clx({error: errors.password})}/>
+                                <p className={"login__error-password"}>{errors.password?.message}</p>
+                            </div>
                         </div>
-                        <div>
-                            <p>Hasło</p>
-                            <input type="text"/>
-                            <span/>
-                        </div>
-                    </div>
-                </section>
-                <section className={"buttons"}>
-                    <Link to="/rejestracja"><button className={"btn-login"}>Załóż konto</button></Link>
-                    <button className={"btn-register"}>Zaloguj się</button>
-                </section>
+                    </section>
+                    <section className={"buttons"}>
+                        <Link to="/rejestracja">
+                            <button className={"btn-login"}>Załóż konto</button>
+                        </Link>
+                        <button className={"btn-register"}>Zaloguj się</button>
+                    </section>
+                </form>
             </div>
         </nav>
     )

@@ -29,7 +29,7 @@ export const LogOut = () => {
 
                 <section className={"logging-out"}>
                     <header>
-                        <h1>Wylogowanie nastąpo</h1>
+                        <h1>Wylogowanie nastąpiło pomyślnie</h1>
                     </header>
                 </section>
                 <section className={"btn"}>
