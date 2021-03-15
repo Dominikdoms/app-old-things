@@ -1,11 +1,53 @@
-import React from "react";
+import React, {useState} from "react";
 import {
     Link
 } from 'react-router-dom';
 import {Link as LinkScroll} from "react-scroll";
+import clx from "classnames"
 import './register.scss'
+//validation
+import {useForm} from "react-hook-form";
+import {yupResolver} from '@hookform/resolvers/yup';
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+    // email: yup.string().required("Pole nie może być puste!").email("Podany email jest nieprawidłowy!"),
+    // password: yup.string().required("Podane hasło jest za któtkie!").min(6)
+    email: yup.string().required("Pole nie może być puste!").email("Podany email jest nieprawidłowy!"),
+    // password: yup.string().required("Podane hasło jest za krótkie!").min(6, "Minimum 6 znaków"),
+    // repeatPassword: yup.string().required("Podane hasło jest za krótkie!").min(6, "Minimum 6 znaków")
+    password: yup.string()
+        .min(6, 'Password must be at least 6 characters')
+        .required('Password is required'),
+    confirmPassword: yup.string()
+        .oneOf([yup.ref('password'), null], 'Passwords must match')
+        .required('Confirm Password is required')
+
+})
 
 export const Register = () => {
+
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+    const {register, handleSubmit, errors} = useForm({
+        resolver: yupResolver(schema),
+        // mode: "onChange"
+    });
+
+
+    const onSubmit = (data) => {
+        console.log(data);
+        console.log("działa");
+
+
+        // setEmail('')
+        // setPassword('')
+    }
+
+
     return (
         <nav className={"navigation"}>
             <div className={"navigation__container container"}>
@@ -25,33 +67,51 @@ export const Register = () => {
                     </ul>
                 </section>
 
-
-                <section className={"register"}>
-                    <header>
-                        <h1>Załóż konto</h1>
-                    </header>
-                    <div className={"register__inputs"}>
-                        <div>
-                            <p>Email</p>
-                            <input type="text"/>
-                            <span/>
+                <form onSubmit={handleSubmit(onSubmit)} className={"register"}>
+                    <section className={"register"}>
+                        <header>
+                            <h1>Załóż konto</h1>
+                        </header>
+                        <div className={"register__inputs"}>
+                            <div>
+                                <p>Email</p>
+                                <input ref={register}
+                                       value={email}
+                                       onChange={e => setEmail(e.target.value)}
+                                       name={"email"}
+                                       type="text"/>
+                                <span className={clx({error: errors.email})}/>
+                                <p>{errors.email?.message}</p>
+                            </div>
+                            <div>
+                                <p>Hasło</p>
+                                <input ref={register}
+                                       value={password}
+                                       onChange={e => setPassword(e.target.value)}
+                                       name={"password"}
+                                       type="text"/>
+                                <span className={clx({error: errors.password})}/>
+                                <p>{errors.password?.message}</p>
+                            </div>
+                            <div>
+                                <p>Powtórz hasło</p>
+                                <input ref={register}
+                                       value={confirmPassword}
+                                       onChange={e => setConfirmPassword(e.target.value)}
+                                       name={"confirmPassword"}
+                                       type="text"/>
+                                <span className={clx({error: errors.confirmPassword})}/>
+                                <p>{errors.confirmPassword?.message}</p>
+                            </div>
                         </div>
-                        <div>
-                            <p>Hasło</p>
-                            <input type="text"/>
-                            <span/>
-                        </div>
-                        <div>
-                            <p>Powtórz hasło</p>
-                            <input type="text"/>
-                            <span/>
-                        </div>
-                    </div>
-                </section>
-                <section className={"register__buttons"}>
-                    <Link to="/logowanie"><button className={"btn-login"}>Zaloguj się</button></Link>
-                    <button className={"btn-register"}>Załóż konto</button>
-                </section>
+                    </section>
+                    <section className={"register__buttons"}>
+                        <Link to="/logowanie">
+                            <button className={"btn-login"}>Zaloguj się</button>
+                        </Link>
+                        <button className={"btn-register"}>Załóż konto</button>
+                    </section>
+                </form>
             </div>
         </nav>
     )

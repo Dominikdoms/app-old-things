@@ -32,8 +32,8 @@ export const Login = () => {
         console.log(data);
         console.log("działa");
 
-        // setEmail('')
-        // setPassword('')
+        setEmail('')
+        setPassword('')
     }
 
 
