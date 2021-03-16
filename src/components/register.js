@@ -10,6 +10,7 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
+
 const schema = yup.object().shape({
     email: yup.string().required("Pole nie może być puste!").email("Podany email jest nieprawidłowy!"),
     password: yup.string()
@@ -35,6 +36,18 @@ export const Register = () => {
 
     const onSubmit = (data) => {
         // console.log(data);
+
+
+        const addUser = () => {
+            const randomID = Math.random().toString(36).substr(2, 9);
+            // firebaseData.firestore().doc(randomID).
+            // firebaseData.auth().createUserWithEmailAndPassword().
+        }
+
+
+
+
+
 
         setEmail('')
         setPassword('')

@@ -13,6 +13,7 @@ import {ContactAndFooter} from "./components/ContactAndFooter/contactAndFooter"
 import {Login} from "./components/login";
 import {Register} from "./components/register";
 import {LogOut} from "./components/logOut";
+import {AddThings} from './components/addThings'
 
 function App() {
     return (
@@ -29,7 +30,9 @@ function App() {
                     <Route path="/logowanie" exact component={Login}/>
                     <Route path="/rejestracja" exact component={Register}/>
                     <Route path="/wylogowano" exact component={LogOut}/>
+                    <Route path="/oddaj-rzeczy" exact component={AddThings}/>
                 </Switch>
+                {/*<AddThings/>*/}
             </>
         </BrowserRouter>
     );
