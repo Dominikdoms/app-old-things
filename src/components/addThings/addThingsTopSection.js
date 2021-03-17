@@ -11,15 +11,15 @@ import sweater from "../../assets/Header-Form-Background.png";
 export const AddThingsTopSection = () => {
 
     return (
-        <header className={"header"}>
-            <div className={"header__container container"}>
+        <header className={"add-things"}>
+            <div className={"add-things__container container"}>
 
-                <section className={"header__start"}>
-                    <ul className={"header__login"}>
+                <section className={"add-things__start"}>
+                    <ul className={"add-things__login"}>
                         <li><Link to="/logowanie">Zaloguj</Link></li>
-                        <li className={"header__registration-btn"}><Link to="/rejestracja">Załóż konto</Link></li>
+                        <li className={"add-things__registration-btn"}><Link to="/rejestracja">Załóż konto</Link></li>
                     </ul>
-                    <ul className={"header__navigation"}>
+                    <ul className={"add-things__navigation"}>
                         <li><Link to="/" smooth={true} duration={1000}>Start</Link></li>
                         {/*to="ID"*/}
                         <li><LinkScroll to="steps" smooth={true} duration={1000}>O co chodzi?</LinkScroll></li>
@@ -29,10 +29,10 @@ export const AddThingsTopSection = () => {
                         <li><LinkScroll to="contact" smooth={true} duration={1000}>Kontakt</LinkScroll></li>
                     </ul>
 
-                    <section className={"header__give-things"}>
+                    <section className={"add-things__give-things"}>
                         <h1>Oddaj rzeczy, których już nie chcesz <br/> POTRZEBUJĄCYM</h1>
                         <h2>Wystarczą 4 proste kroki:</h2>
-                        <div className={"header__give-things-steps"}>
+                        <div className={"add-things__give-things-steps"}>
                             <div className={"rhombus"}>
                                 <div className={"rhombus-content"}>
                                     <h3>1</h3>
