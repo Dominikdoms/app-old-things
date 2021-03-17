@@ -13,6 +13,9 @@ export const AddThingsForm = () => {
     const [toys, setToys] = useState(false);
     const [books, setBooks] = useState(false);
     const [other, setOther] = useState(false);
+    const [state, setState] = useState({
+
+    })
     //--------stepTwo--------
     const [numberOfBags, setNumberOfBags] = useState(0);
     //--------stepThree------

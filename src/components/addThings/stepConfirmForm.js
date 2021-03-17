@@ -126,6 +126,10 @@ export const StepConfirmForm = ({
                 <button onClick={e => {
                     e.preventDefault();
                     setPage(6)
+                    // setState(prev => ({
+                    //     ...prev,
+                    //     page: 6
+                    // }))
                     addDate();
                 }}>Potwierdzam
                 </button>
