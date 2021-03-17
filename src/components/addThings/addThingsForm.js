@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from "react";
-import {firebaseData} from "../firebaseData"
+import React, {useState} from "react";
 import {StepOneForm} from "./stepOneForm"
 import {StepTwoForm} from "./stepTwoForm";
 import {StepThreeForm} from "./stepThreeForm";
 import {StepFourForm} from "./stepFourForm";
 import {StepConfirmForm} from './stepConfirmForm'
+import {StepFinalForm} from './stepFinalForm'
 
 export const AddThingsForm = () => {
     //--------stepOne--------
@@ -91,7 +91,10 @@ export const AddThingsForm = () => {
                 pickUpDate={pickUpDate}
                 pickUpHour={pickUpHour}
                 pickUpComments={pickUpComments}
-                page={page} setPage={setPage}/>}
+                page={page} setPage={setPage}
+            />}
+            {page === 6 &&
+            <StepFinalForm/>}
         </>
     )
 }
