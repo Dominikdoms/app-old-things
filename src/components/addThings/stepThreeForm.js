@@ -43,30 +43,49 @@ export const StepThreeForm = ({
                         </select>
 
                         <p className={"steps__form-description"}>Komu chcesz pomóc?</p>
-                        <label className="checkbox">
-                            <input type={"checkbox"} value={kids} onChange={() => setKids(!kids)}/>
-                            <span className={clx({active: kids}, "checkbox-kids")}>dziecion</span>
-                        </label>
-                        <label className="checkbox">
-                            <input type={"checkbox"} value={mother} onChange={() => setMother(!mother)}/>
-                            <span className={clx({active: mother}, "checkbox-mother")}>samotnym matkom</span>
-                        </label>
-                        <label className="checkbox">
-                            <input type={"checkbox"} value={homeless} onChange={() => setHomeless(!homeless)}/>
-                            <span className={clx({active: homeless}, "checkbox-homeless")}>bezdomnym</span>
-                        </label>
-                        <label className="checkbox">
-                            <input type={"checkbox"} value={disabled} onChange={() => setDisabled(!disabled)}/>
-                            <span className={clx({active: disabled}, "checkbox-disabled")}>niepełnosprawnym</span>
-                        </label>
-                        <label className="checkbox">
-                            <input type={"checkbox"} value={oldPeople} onChange={() => setOldPeople(!oldPeople)}/>
-                            <span className={clx({active: oldPeople}, "checkbox-oldPeople")}>osobom sarszym</span>
-                        </label>
-                        <p className={"steps__form-description"}>Wpisz nazwę konkretnej organizacji
-                            (opcjonalnie)</p>
-                        <input value={nameOrganization} onChange={e => setNameOrganization(e.target.value)}/>
+                        <section className={"steps__form-checkboxes"}>
+                            <label className="checkbox-btn">
+                                <input type={"checkbox"}
+                                       value={kids}
+                                       onChange={() => setKids(!kids)}
+                                />
+                                <span className={clx({active: kids}, "checkbox-btn-kids")}>dziecion</span>
+                            </label>
+                            <label className="checkbox-btn">
+                                <input type={"checkbox"}
+                                       value={mother}
+                                       onChange={() => setMother(!mother)}
+                                />
+                                <span className={clx({active: mother}, "checkbox-btn-mother")}>samotnym matkom</span>
+                            </label>
+                            <label className="checkbox-btn">
+                                <input type={"checkbox"}
+                                       value={homeless}
+                                       onChange={() => setHomeless(!homeless)}
+                                />
+                                <span className={clx({active: homeless}, "checkbox-btn-homeless")}>bezdomnym</span>
+                            </label>
+                            <label className="checkbox-btn">
+                                <input type={"checkbox"}
+                                       value={disabled}
+                                       onChange={() => setDisabled(!disabled)}
+                                />
+                                <span className={clx({active: disabled}, "checkbox-btn-disabled")}>niepełnosprawnym</span>
+                            </label>
+                            <label className="checkbox-btn">
+                                <input type={"checkbox"}
+                                       value={oldPeople}
+                                       onChange={() => setOldPeople(!oldPeople)}
+                                />
+                                <span className={clx({active: oldPeople}, "checkbox-btn-oldPeople")}>osobom sarszym</span>
+                            </label>
+                        </section>
+                        <p className={"steps__form-description"}>Wpisz nazwę konkretnej organizacji (opcjonalnie)</p>
+                        <input className={"input-text"} value={nameOrganization}
+                               onChange={e => setNameOrganization(e.target.value)}
+                        />
                     </div>
+
                     <div>
                         <button className={"btn-prev"}
                                 onClick={e => {

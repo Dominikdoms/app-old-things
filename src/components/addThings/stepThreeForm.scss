@@ -80,11 +80,17 @@
     font-size: 24px;
     font-weight: 600;
     font-family: $font-base;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+  }
+  &-checkboxes{
+    max-width: 691px;
+    display: flex;
+    flex-wrap: wrap;
+
   }
 }
 
-.checkbox {
+.checkbox-btn {
   cursor: pointer;
   display: flex;
 
@@ -97,15 +103,64 @@
     width: 0;
   }
 
-  &-kids span {
+  span{
+    margin-right: 24px;
+    margin-bottom: 24px;
+  }
+
+  &-kids {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 148px;
     height: 55px;
-    //background-color: black;
+    border: 1px solid;
+  }
+
+  &-mother {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 263px;
+    height: 55px;
+    border: 1px solid;
+  }
+  &-homeless {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 175px;
+    height: 55px;
+    border: 1px solid;
+  }
+
+  &-disabled {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 245px;
+    height: 55px;
+    border: 1px solid;
+  }
+  &-oldPeople {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 245px;
+    height: 55px;
+    border: 1px solid;
   }
 
   .active {
     background-color: $color-yellow;
   }
+}
+.input-text{
+  width: 570px;
+  height: 40px;
+  font-size: 30px;
+  background: none;
+  border: 1px solid black;
 }
 
 
