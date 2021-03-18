@@ -36,7 +36,7 @@ export const AddThingsForm = () => {
     const [pickUpComments, setPickUpComments] = useState('')
 
     //--------allSteps-------
-    const [page, setPage] = useState(5)
+    const [page, setPage] = useState(1)
 
     return (
         <>
