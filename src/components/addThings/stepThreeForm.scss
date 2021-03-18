@@ -61,21 +61,35 @@
     font-weight: 600;
     font-size: 36px;
     font-family: $font-base;
-    padding-bottom: 40px;
+    padding-bottom: 10px;
+  }
+
+
+  &-select {
+    width: 300px;
+    height: 49px;
+    background: none;
+    margin-bottom: 40px;
+
+    option {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &-description {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: $font-base;
+    padding-bottom: 10px;
   }
 }
 
-
-
-.checkbox{
+.checkbox {
   cursor: pointer;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  align-items: center;
-  padding-bottom: 42px;
 
-  input{
+
+  input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -83,18 +97,19 @@
     width: 0;
   }
 
-  span{
-    height: 40px;
-    width: 40px;
-    border: 1px solid black;
-    margin-right: 30px;
+  &-kids span {
+    width: 148px;
+    height: 55px;
+    //background-color: black;
   }
-  .active{
+
+  .active {
     background-color: $color-yellow;
   }
 }
 
-.btn-next{
+
+.btn-next {
   font-size: 24px;
   width: 180px;
   height: 79px;
@@ -103,6 +118,15 @@
   margin-bottom: 50px;
 }
 
+.btn-prev {
+  font-size: 24px;
+  width: 180px;
+  height: 79px;
+  background: none;
+  border: 1px solid black;
+  margin-bottom: 50px;
+  margin-right: 50px;
+}
 
 
 

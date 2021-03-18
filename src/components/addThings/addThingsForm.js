@@ -59,7 +59,7 @@ export const AddThingsForm = () => {
                 city={city} setCity={setCity}
                 kids={kids} setKids={setKids}
                 mother={mother} setMother={setMother}
-                homless={homeless} setHomeless={setHomeless}
+                homeless={homeless} setHomeless={setHomeless}
                 disabled={disabled} setDisabled={setDisabled}
                 oldPeople={oldPeople} setOldPeople={setOldPeople}
                 nameOrganization={nameOrganization} setNameOrganization={setNameOrganization}

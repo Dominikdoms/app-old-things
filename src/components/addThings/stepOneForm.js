@@ -1,6 +1,6 @@
 import React from "react";
-
-
+import './stepOneForm.scss'
+import clx from "classnames"
 
 export const StepOneForm = ({
                                 goodClothes, setGoodClothes,
@@ -11,59 +11,83 @@ export const StepOneForm = ({
                                 page, setPage
                             }) => {
 
-
     return (
-        <section>
-            <div>
-                <h2>Ważne!</h2>
-                <p>Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je
-                    przekazać.</p>
-            </div>
-            <div>
-                <p>Krok {page}/4</p>
-                <h2>Zaznacz co chcesz oddać:</h2>
-                <div>
-                    <p>ubrania, które nadają się do ponownego użycia</p>
-                    <input type="checkbox"
-                           value={goodClothes}
-                           onChange={() => setGoodClothes(!goodClothes)}
-                    />
+        <>
+            <section className={"steps__warning"}>
+                <div className={"steps__warning-container"}>
+                    <h2 className={"steps__warning-header"}>Ważne!</h2>
+                    <p className={"steps__warning-text"}>Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu
+                        będziemy
+                        wiedzieć komu najlepiej je
+                        przekazać.</p>
                 </div>
-                <div>
-                    <p>ubrania, do wyrzucenia</p>
-                    <input type="checkbox"
-                           value={brokenClothes}
-                           onChange={() => setBrokenClothes(!brokenClothes)}
-                    />
+            </section>
+
+            <section className={"steps__form"}>
+                <div className={"steps__form-container"}>
+                    <div className={"steps__form-content"}>
+                        <p className={"steps__form-count"}>Krok {page}/4</p>
+                        <h2 className={"steps__form-header"}>Zaznacz co chcesz oddać:</h2>
+                        <div>
+                            <label className={"checkbox"}>
+                                <input type="checkbox"
+                                       value={goodClothes}
+                                       onChange={() => setGoodClothes(!goodClothes)}
+                                />
+                                ubrania, które nadają się do ponownego użycia
+                                <span className={clx({active: goodClothes})}/>
+                            </label>
+
+                        </div>
+                        <div>
+                            <label className={"checkbox"}>
+                                <input type="checkbox"
+                                       value={brokenClothes}
+                                       onChange={() => setBrokenClothes(!brokenClothes)}
+                                />
+                                ubrania, do wyrzucenia
+                                <span className={clx({active: brokenClothes})}/>
+                            </label>
+                        </div>
+                        <div>
+                            <label className={"checkbox"}>
+                                <input type="checkbox"
+                                       value={toys}
+                                       onChange={() => setToys(!toys)}
+                                />
+                                zabawki
+                                <span className={clx({active: toys})}/>
+                            </label>
+                        </div>
+                        <div>
+                            <label className={"checkbox"}>
+                                <input type="checkbox"
+                                       value={books}
+                                       onChange={() => setBooks(!books)}
+                                />
+                                książki
+                                <span className={clx({active: books})}/>
+                            </label>
+                        </div>
+                        <div>
+                            <label className={"checkbox"}>
+                                <input type="checkbox"
+                                       value={other}
+                                       onChange={() => setOther(!other)}
+                                />
+                                inne
+                                <span className={clx({active: other})}/>
+                            </label>
+                        </div>
+                    </div>
+                    <button className={"btn-next"} onClick={e => {
+                        e.preventDefault();
+                        setPage(2)
+                    }}>Dalej
+                    </button>
                 </div>
-                <div>
-                    <p>zabawki</p>
-                    <input type="checkbox"
-                           value={toys}
-                           onChange={() => setToys(!toys)}
-                    />
-                </div>
-                <div>
-                    <p>książki</p>
-                    <input type="checkbox"
-                           value={books}
-                           onChange={() => setBooks(!books)}
-                    />
-                </div>
-                <div>
-                    <p>inne</p>
-                    <input type="checkbox"
-                           value={other}
-                           onChange={() => setOther(!other)}
-                    />
-                </div>
-            </div>
-            <button onClick={e => {
-                e.preventDefault();
-                setPage(2)
-            }}>Dalej
-            </button>
-        </section>
+            </section>
+        </>
     )
 }
 

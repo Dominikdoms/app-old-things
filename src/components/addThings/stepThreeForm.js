@@ -1,4 +1,6 @@
 import React from "react"
+import clx from "classnames"
+import './stepThreeForm.scss';
 
 
 export const StepThreeForm = ({
@@ -14,47 +16,73 @@ export const StepThreeForm = ({
 
 
     return (
-        <section>
-            <div>
-                <h2>Ważne!</h2>
-                <p>Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji w wyszukiwarce. Możesz też filtrować organizacje po ich lokalizacji bądź celu ich pomocy.</p>
-            </div>
-            <div>
-                <p>Krok {page}/4</p>
-                <h2>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h2>
+        <>
+            <section className={"steps__warning"}>
+                <div className={"steps__warning-container"}>
+                    <h2 className={"steps__warning-header"}>Ważne!</h2>
+                    <p className={"steps__warning-text"}>Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej
+                        organizacji w wyszukiwarce. Możesz też
+                        filtrować organizacje po ich lokalizacji bądź celu ich pomocy.</p>
+                </div>
+            </section>
+            <section className={"steps__form"}>
+                <div className={"steps__form-container"}>
+                    <div className={"steps__form-content"}>
+                        <p className={"steps__form-count"}>Krok {page}/4</p>
 
-                <p>Lokalizacja:</p>
-                <select value={city} onChange={e => setCity(e.target.value)}>
-                    <option>— wybierz —</option>
-                    <option value={"Poznań"}>Poznań</option>
-                    <option value={"Warszawa"}>Warszawa</option>
-                    <option value={"Kraków"}>Kraków</option>
-                    <option value={"Wrocław"}>Wrocław</option>
-                    <option value={"Katowice"}>Katowice</option>
-                </select>
 
-                <p>Komu chcesz pomóc?</p>
-                <input type={"checkbox"} value={kids} onChange={() => setKids(!kids)}/>
-                <input type={"checkbox"} value={mother} onChange={() => setMother(!mother)}/>
-                <input type={"checkbox"} value={homeless} onChange={() => setHomeless(!homeless)}/>
-                <input type={"checkbox"} value={disabled} onChange={() => setDisabled(!disabled)}/>
-                <input type={"checkbox"} value={oldPeople} onChange={() => setOldPeople(!oldPeople)}/>
+                        <h2 className={"steps__form-header"}>Lokalizacja:</h2>
+                        <select className={"steps__form-select"}
+                                value={city} onChange={e => setCity(e.target.value)}>
+                            <option>— wybierz —</option>
+                            <option value={"Poznań"}>Poznań</option>
+                            <option value={"Warszawa"}>Warszawa</option>
+                            <option value={"Kraków"}>Kraków</option>
+                            <option value={"Wrocław"}>Wrocław</option>
+                            <option value={"Katowice"}>Katowice</option>
+                        </select>
 
-                <p>Wpisz nazwę konkretnej organizacji (opcjonalnie)</p>
-                <input value={nameOrganization} onChange={e => setNameOrganization(e.target.value)}/>
-            </div>
-            <div>
-                <button onClick={e => {
-                    e.preventDefault();
-                    setPage(2)
-                }}>Wstecz
-                </button>
-                <button onClick={e => {
-                    e.preventDefault();
-                    setPage(4)
-                }}>Dalej
-                </button>
-            </div>
-        </section>
+                        <p className={"steps__form-description"}>Komu chcesz pomóc?</p>
+                        <label className="checkbox">
+                            <input type={"checkbox"} value={kids} onChange={() => setKids(!kids)}/>
+                            <span className={clx({active: kids}, "checkbox-kids")}>dziecion</span>
+                        </label>
+                        <label className="checkbox">
+                            <input type={"checkbox"} value={mother} onChange={() => setMother(!mother)}/>
+                            <span className={clx({active: mother}, "checkbox-mother")}>samotnym matkom</span>
+                        </label>
+                        <label className="checkbox">
+                            <input type={"checkbox"} value={homeless} onChange={() => setHomeless(!homeless)}/>
+                            <span className={clx({active: homeless}, "checkbox-homeless")}>bezdomnym</span>
+                        </label>
+                        <label className="checkbox">
+                            <input type={"checkbox"} value={disabled} onChange={() => setDisabled(!disabled)}/>
+                            <span className={clx({active: disabled}, "checkbox-disabled")}>niepełnosprawnym</span>
+                        </label>
+                        <label className="checkbox">
+                            <input type={"checkbox"} value={oldPeople} onChange={() => setOldPeople(!oldPeople)}/>
+                            <span className={clx({active: oldPeople}, "checkbox-oldPeople")}>osobom sarszym</span>
+                        </label>
+                        <p className={"steps__form-description"}>Wpisz nazwę konkretnej organizacji
+                            (opcjonalnie)</p>
+                        <input value={nameOrganization} onChange={e => setNameOrganization(e.target.value)}/>
+                    </div>
+                    <div>
+                        <button className={"btn-prev"}
+                                onClick={e => {
+                                    e.preventDefault();
+                                    setPage(2)
+                                }}>Wstecz
+                        </button>
+                        <button className={"btn-next"}
+                                onClick={e => {
+                                    e.preventDefault();
+                                    setPage(4)
+                                }}>Dalej
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </>
     )
 }
