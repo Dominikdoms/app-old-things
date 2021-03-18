@@ -59,7 +59,7 @@ export const StepFourForm = ({
                                 </div>
                             </div>
                             <div className={"content-term"}>
-                                <h3 className={"content-term__header"}>Termin odbioru</h3>
+                                <h3 className={"content-term__header"}>Termin odbioru:</h3>
                                 <div className={"content-term__inputs"}>
                                     <p>Data</p>
                                     <input type={"text"}

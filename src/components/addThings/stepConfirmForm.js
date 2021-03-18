@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {firebaseData} from "../firebaseData"
-
+import './stepConfirmFrom.scss'
+import movementIcon from '../../assets/movement-Icon.png';
+import shirtIcon from '../../assets/shirt-icon.png';
 
 export const StepConfirmForm = ({
                                     //--stepOne--//
@@ -72,67 +74,75 @@ export const StepConfirmForm = ({
 
 
     return (
-        <section>
-            <h2>Podsumowanie Twojej darowizny</h2>
-            <h3>Oddajesz:</h3>
-            <p>{numberOfBags !== 0 && <span>{numberOfBags} worki,</span>}
-                {things.map((thing, index) => <span key={index}>{thing}</span>)}
-                {toWho.map((item, index) => <span key={index}>{item}</span>)}
-            </p>
-            <p>dla lokalizacji: {city}</p>
+        <section className={"steps__form"}>
+            <div className={"steps__form-container"}>
+                <h2 className={"steps__form-four-header"}>Podsumowanie Twojej darowizny</h2>
+                <div className={"steps__form-section"}>
+                    <h3 className={"content-address-four__header top"}>Oddajesz:</h3>
+                    <div className={"steps__form-four-things"}>
+                        <img src={shirtIcon} alt={"movement icon"}/>
+                        <p>{numberOfBags !== 0 && <span>{numberOfBags} worki,</span>}
+                            {things.map((thing, index) => <span key={index}>{thing}</span>)}
+                            {toWho.map((item, index) => <span key={index}>{item}</span>)}
+                        </p>
+                    </div>
+                    <div className={"steps__form-four-localization"}>
+                        <img src={movementIcon} alt="shirt"/>
+                        <p>dla lokalizacji: {city}</p>
+                    </div>
+                </div>
+                <div className={"form-content-data"}>
+                    <div className={"content-address-four"}>
+                        <h3 className={"content-address-four__header"}>Adres odbioru:</h3>
+                        <div className={"content-address-four__data"}>
+                            <p>Ulica</p>
+                            <p>{pickUpStreet}</p>
+                        </div>
+                        <div className={"content-address-four__data"}>
+                            <p>Miasto</p>
+                            <p>{pickUpCity}</p>
+                        </div>
+                        <div className={"content-address-four__data"}>
+                            <p>Kod pocztowy</p>
+                            <p>{pickUpPostCode}</p>
+                        </div>
+                        <div className={"content-address-four__data"}>
+                            <p>Numer telefonu</p>
+                            <p>{pickUpPhoneNumber}</p>
+                        </div>
+                    </div>
 
-            <div>
-                <h3>Adres odbioru:</h3>
-                <div>
-                    <p>Ulica</p>
-                    <p>{pickUpStreet}</p>
+                    <div className={"content-term-text"}>
+                        <h3 className={"content-term-text__header"}>Termin odbioru:</h3>
+                        <div className={"content-term-text__data"}>
+                            <p>Data</p>
+                            <p>{pickUpDate}</p>
+                        </div>
+                        <div className={"content-term-text__data"}>
+                            <p>Godzina</p>
+                            <p>{pickUpHour}</p>
+                        </div>
+                        <div className={"content-term-text__data"}>
+                            <p>Uwagi dla kuriera</p>
+                            <p>{pickUpComments}</p>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <p>Miasto</p>
-                    <p>{pickUpCity}</p>
+                    <button className={"btn-prev__confirm"}
+                            onClick={e => {
+                                e.preventDefault();
+                                setPage(4);
+                            }}>Wstecz
+                    </button>
+                    <button className={"btn-next"}
+                            onClick={e => {
+                                e.preventDefault();
+                                setPage(6)
+                                addDate();
+                            }}>Potwierdzam
+                    </button>
                 </div>
-                <div>
-                    <p>Kod pocztowy</p>
-                    <p>{pickUpPostCode}</p>
-                </div>
-                <div>
-                    <p>Numer telefonu</p>
-                    <p>{pickUpPhoneNumber}</p>
-                </div>
-            </div>
-
-            <div>
-                <h3>Termin odbioru:</h3>
-                <div>
-                    <p>Data</p>
-                    <p>{pickUpDate}</p>
-                </div>
-                <div>
-                    <p>Godzina</p>
-                    <p>{pickUpHour}</p>
-                </div>
-                <div>
-                    <p>Uwagi</p>
-                    <p>{pickUpComments}</p>
-                </div>
-            </div>
-
-            <div>
-                <button onClick={e => {
-                    e.preventDefault();
-                    setPage(4);
-                }}>Wstecz
-                </button>
-                <button onClick={e => {
-                    e.preventDefault();
-                    setPage(6)
-                    // setState(prev => ({
-                    //     ...prev,
-                    //     page: 6
-                    // }))
-                    addDate();
-                }}>Potwierdzam
-                </button>
             </div>
         </section>
     )

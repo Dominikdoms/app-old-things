@@ -126,6 +126,7 @@
       height: 40px;
       background: none;
       border: 1px solid black;
+      font-size: 30px;
     }
   }
 }
@@ -162,6 +163,7 @@
       height: 40px;
       background: none;
       border: 1px solid black;
+      font-size: 30px;
     }
   }
   &__textarea{
@@ -171,7 +173,7 @@
       font-size: 24px;
       font-family: $font-base;
       font-weight: 200;
-      width: 101px;
+      width: 113px;
     }
     textarea{
       resize: none;
@@ -179,6 +181,7 @@
       height: 120px;
       background: none;
       border: 1px solid black;
+      font-size: 30px;
     }
   }
 }
