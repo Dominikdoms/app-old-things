@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import {firebaseData} from "../firebaseData"
+import React, {useState, useEffect, useContext} from 'react';
 import './stepConfirmFrom.scss'
 import movementIcon from '../../assets/movement-Icon.png';
 import shirtIcon from '../../assets/shirt-icon.png';
+import {FirebaseContext} from "../../App";
 
 export const StepConfirmForm = ({
                                     //--stepOne--//
@@ -32,7 +32,7 @@ export const StepConfirmForm = ({
                                     page,
                                     setPage
                                 }) => {
-
+    const firebase = useContext(FirebaseContext)
     const [things, setThings] = useState([]);
     const [toWho, setToWho] = useState([]);
 
@@ -67,7 +67,7 @@ export const StepConfirmForm = ({
 
     const addDate = () => {
         const randomID = Math.random().toString(36).substr(2, 9);
-        firebaseData.firestore().collection("Users/User2/thingsCollection").doc(randomID).set(collection)
+        firebase.db.collection("Users/User2/thingsCollection").doc(randomID).set(collection)
             .then(data => console.log("success"))
             .catch(err => console.log(err));
     }

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import {
     Link
 } from 'react-router-dom';
@@ -9,6 +9,7 @@ import './login.scss'
 import {useForm} from "react-hook-form";
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import {FirebaseContext} from "../App";
 
 const schema = yup.object().shape({
     // email: yup.string().required("Pole nie może być puste!").email("Podany email jest nieprawidłowy!"),
@@ -19,6 +20,8 @@ const schema = yup.object().shape({
 
 
 export const Login = () => {
+
+    const firebase = useContext(FirebaseContext)
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,7 +34,9 @@ export const Login = () => {
     const onSubmit = (data) => {
         console.log(data);
         console.log("działa");
-
+        firebase.doSignInWithEmailAndPassword(data.email, data.password)
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
         setEmail('')
         setPassword('')
     }

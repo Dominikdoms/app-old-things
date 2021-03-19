@@ -1,4 +1,4 @@
-import React from "react"
+import React, { createContext } from "react"
 import {
     BrowserRouter,
     Route,
@@ -14,9 +14,13 @@ import {Login} from "./components/login";
 import {Register} from "./components/register";
 import {LogOut} from "./components/logOut";
 import {AddThings} from './components/addThings/addThings'
+import Firebase from './components/firebaseData'
+
+export const FirebaseContext = createContext(null)
 
 function App() {
     return (
+        <FirebaseContext.Provider value={new Firebase()}>
         <BrowserRouter>
             <>
                 <Switch>
@@ -34,6 +38,7 @@ function App() {
                 </Switch>
             </>
         </BrowserRouter>
+        </FirebaseContext.Provider>
     );
 }
 

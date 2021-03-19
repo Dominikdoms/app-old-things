@@ -9,6 +9,8 @@ import './register.scss'
 import {useForm} from "react-hook-form";
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from "yup";
+//firebase
+// import {useAuth} from './contexts/AuthContext'
 
 
 const schema = yup.object().shape({
@@ -34,15 +36,22 @@ export const Register = () => {
     });
 
 
+//firebase
+
     const onSubmit = (data) => {
         // console.log(data);
 
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        // const {signup} = useAuth()
 
-        const addUser = () => {
-            const randomID = Math.random().toString(36).substr(2, 9);
-            // firebaseData.firestore().doc(randomID).
-            // firebaseData.auth().createUserWithEmailAndPassword().
-        }
+
+
+
+        // const addUser = () => {
+        //     const randomID = Math.random().toString(36).substr(2, 9);
+        //     // firebaseData.firestore().doc(randomID).
+        //     // firebaseData.auth().createUserWithEmailAndPassword().
+        // }
 
 
 
