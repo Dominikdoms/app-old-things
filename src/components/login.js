@@ -25,6 +25,9 @@ export const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    //firebase
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
 
     const {register, handleSubmit, errors} = useForm({
         resolver: yupResolver(schema)
@@ -34,9 +37,26 @@ export const Login = () => {
     const onSubmit = (data) => {
         console.log(data);
         console.log("działa");
-        firebase.doSignInWithEmailAndPassword(data.email, data.password)
+        firebase.doSignInWithEmailAndPassword(data.email, data.password)//dane z inputów
             .then(data => console.log(data))
-            .catch(err => console.log(err))
+            .catch(err => {
+                switch(err.code) {
+                    case "auth/invalid-email":
+                    case "auth/user-disabled":
+                    case "auth/user-not-found":
+                        setEmailError("taki email nie istnieje");
+                        break;
+
+                    case "auth/wrong-password":
+                        setPasswordError("takie hasło nie istnieje");
+                        break;
+
+                    default:
+                    //
+                }
+            })
+
+
         setEmail('')
         setPassword('')
     }
@@ -75,7 +95,7 @@ export const Login = () => {
                                        name={"email"}
                                        type="text"/>
                                 <span className={clx({error: errors.email})}/>
-                                <p className={"login__error-email"}>{errors.email?.message}</p>
+                                <p className={"login__error-email"}>{errors.email?.message} {emailError}</p>
                             </div>
                             <div>
                                 <p>Hasło</p>
@@ -85,7 +105,7 @@ export const Login = () => {
                                        name={"password"}
                                        type="password"/>
                                 <span className={clx({error: errors.password})}/>
-                                <p className={"login__error-password"}>{errors.password?.message}</p>
+                                <p className={"login__error-password"}>{errors.password?.message} {passwordError}</p>
                             </div>
                         </div>
                     </section>

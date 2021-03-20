@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import {
     Link
 } from 'react-router-dom';
@@ -9,8 +9,8 @@ import './register.scss'
 import {useForm} from "react-hook-form";
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from "yup";
-//firebase
-// import {useAuth} from './contexts/AuthContext'
+
+import {FirebaseContext} from "../App";
 
 
 const schema = yup.object().shape({
@@ -25,7 +25,7 @@ const schema = yup.object().shape({
 })
 
 export const Register = () => {
-
+    const firebase = useContext(FirebaseContext)
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -39,23 +39,11 @@ export const Register = () => {
 //firebase
 
     const onSubmit = (data) => {
-        // console.log(data);
-
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        // const {signup} = useAuth()
 
 
-
-
-        // const addUser = () => {
-        //     const randomID = Math.random().toString(36).substr(2, 9);
-        //     // firebaseData.firestore().doc(randomID).
-        //     // firebaseData.auth().createUserWithEmailAndPassword().
-        // }
-
-
-
-
+        firebase.doCreateUserWithEmailAndPassword(data.email, data.password)
+            .then(data => console.log("success"))
+            .catch(err => console.log(err));
 
 
         setEmail('')
