@@ -70,17 +70,9 @@ export const Login = () => {
             <div className={"navigation__container container"}>
                 <section className={"navigation__start"}>
                     <ul className={"navigation__login"}>
+                        <li className={"navigation__login-start"}><Link to="/">Start</Link></li>
                         <li><Link to="/logowanie">Zaloguj</Link></li>
-                        <li className={"navigation__registration-btn"}><Link to="/rejestracja">Załóż konto</Link></li>
-                    </ul>
-                    <ul className={"navigation__nav"}>
-                        <li><Link to="/" smooth={true} duration={1000}>Start</Link></li>
-                        {/*to="ID"*/}
-                        <li><LinkScroll to="steps" smooth={true} duration={1000}>O co chodzi?</LinkScroll></li>
-                        <li><LinkScroll to="aboutUs" smooth={true} duration={1000}>O nas</LinkScroll></li>
-                        <li><LinkScroll to="fundations" smooth={true} duration={1000}>Fundacja i
-                            Organizacje</LinkScroll></li>
-                        <li><LinkScroll to="contact" smooth={true} duration={1000}>Kontakt</LinkScroll></li>
+                        <Link to="/rejestracja"><li className={"navigation__registration-btn"}>Załóż konto</li></Link>
                     </ul>
                 </section>
 
