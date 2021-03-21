@@ -2,12 +2,12 @@ import React from "react"
 import {HomeHeader} from "./home/HomeHeader"
 import {HomeThreeColumns} from "./home/HomeThreeColumns";
 
-export const Home = () => {
+export const Home = ({authUser}) => {
 
     return (
 
         <>
-            <HomeHeader/>
+            <HomeHeader authUser={authUser}/>
             <HomeThreeColumns/>
         </>
     )

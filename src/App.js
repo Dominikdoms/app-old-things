@@ -39,7 +39,7 @@ function App() {
             <>
                 <Switch>
                     <Route exact path="/">
-                        <Home/>
+                        <Home authUser={authUser}/>
                         <SimpleSteps/>
                         <AboutUs/>
                         <WhoWeHelp/>
