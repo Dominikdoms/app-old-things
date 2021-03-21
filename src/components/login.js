@@ -1,6 +1,6 @@
 import React, {useState, useContext} from "react";
 import {
-    Link
+    Link, useHistory
 } from 'react-router-dom';
 import {Link as LinkScroll} from "react-scroll";
 import clx from "classnames"
@@ -20,6 +20,7 @@ const schema = yup.object().shape({
 
 
 export const Login = () => {
+    const history = useHistory();
 
     const firebase = useContext(FirebaseContext)
 
@@ -39,6 +40,7 @@ export const Login = () => {
         console.log("działa");
         firebase.doSignInWithEmailAndPassword(data.email, data.password)//dane z inputów
             .then(data => console.log(data))
+            .then( () => history.push("/"))
             .catch(err => {
                 switch(err.code) {
                     case "auth/invalid-email":

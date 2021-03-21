@@ -32,6 +32,7 @@ export const StepConfirmForm = ({
                                     page,
                                     setPage
                                 }) => {
+
     const firebase = useContext(FirebaseContext)
     const [things, setThings] = useState([]);
     const [toWho, setToWho] = useState([]);

@@ -1,4 +1,4 @@
-import React, { createContext } from "react"
+import React, { createContext, useEffect, useState } from "react"
 import {
     BrowserRouter,
     Route,
@@ -19,6 +19,20 @@ import Firebase from './components/firebaseData'
 export const FirebaseContext = createContext(null)
 
 function App() {
+    const [authUser, setAuthUser] = useState(null);
+    const firebase = new Firebase()
+    console.log(authUser)
+    useEffect(() => {
+        firebase.auth.onAuthStateChanged(authUser => {
+            if(authUser) {
+                setAuthUser(authUser);
+            } else {
+                setAuthUser(null);
+            }
+        })
+    }, []);
+
+
     return (
         <FirebaseContext.Provider value={new Firebase()}>
         <BrowserRouter>

@@ -1,6 +1,6 @@
 import React, {useState, useContext} from "react";
 import {
-    Link
+    Link, useHistory
 } from 'react-router-dom';
 import {Link as LinkScroll} from "react-scroll";
 import clx from "classnames"
@@ -25,6 +25,7 @@ const schema = yup.object().shape({
 })
 
 export const Register = () => {
+    const history = useHistory();
     const firebase = useContext(FirebaseContext)
 
     const [email, setEmail] = useState('');
@@ -43,6 +44,7 @@ export const Register = () => {
 
         firebase.doCreateUserWithEmailAndPassword(data.email, data.password)
             .then(data => console.log("success"))
+            .then( () => history.push("/oddaj-rzeczy"))
             .catch(err => console.log(err));
 
 

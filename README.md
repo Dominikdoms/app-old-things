@@ -2,6 +2,8 @@
 ```json-server db.json --watch```
 http://localhost:3000/
 
+mail: test@gmail.com
+password: 123456
 
 
 # Getting Started with Create React App
