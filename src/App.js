@@ -39,8 +39,8 @@ function App() {
             <>
                 <Switch>
                     <Route exact path="/">
-                        <Home authUser={authUser}/>
-                        <SimpleSteps/>
+                        <Home authUser={authUser} setAuthUser={setAuthUser}/>
+                        <SimpleSteps authUser={authUser}/>
                         <AboutUs/>
                         <WhoWeHelp/>
                         <ContactAndFooter/>
@@ -48,7 +48,8 @@ function App() {
                     <Route path="/logowanie" exact component={Login}/>
                     <Route path="/rejestracja" exact component={Register}/>
                     <Route path="/wylogowano" exact component={LogOut}/>
-                    <Route path="/oddaj-rzeczy" exact component={AddThings}/>
+                    <Route path="/oddaj-rzeczy" exact><AddThings authUser={authUser} setAuthUser={setAuthUser}/>
+                    </Route>
                 </Switch>
             </>
         </BrowserRouter>

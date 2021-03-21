@@ -11,14 +11,14 @@ import Firebase from "../firebaseData";
 // background-image: url("../../assets/Hero-Image.png");
 
 // const {firebase, authUser} = useContext(FirebaseContext)
-// const firebase = new Firebase()
+const firebase = new Firebase()
 export const HomeHeader = (props) => {
     const {authUser, setAuthUser} = props;
-    // const handleLogout = () => {
-    //     setUser('');
-    //     firebase.auth.signOut();
-    //     localStorage.clear();
-    // };
+    const handleLogout = () => {
+        setAuthUser('');
+        firebase.auth.signOut();
+        localStorage.clear();
+    };
 
     console.log("/oddaj-rzeczy", authUser)
 
@@ -38,7 +38,7 @@ export const HomeHeader = (props) => {
                                 <Link to="/oddaj-rzeczy">
                                     <li className={"header__registration-btn"}>Oddaj rzeczy</li>
                                 </Link>
-                                <li><Link to="/wylogowano">wyloguj</Link></li>
+                                <li onClick={handleLogout}><Link to="/wylogowano">wyloguj</Link></li>
                             </>
                         ) : (
                             <>
@@ -61,8 +61,18 @@ export const HomeHeader = (props) => {
                     <section className={"header__give-things"}>
                         <h1>Zacznij Pomagać! <br/> Oddaj niechciane rzeczy w zaufane ręce</h1>
                         <ul className={"header__buttons"}>
-                            <button className={"header__btn"}><Link to={"/logowanie"}>ODDAJ <br/> RZECZ</Link></button>
-                            <button className={"header__btn"}><Link to={"/logowanie"}>ZORGANIZUJ ZBIÓRKĘ</Link></button>
+                            {authUser ? (
+                                <>
+                                    <button className={"header__btn"}><Link to={"/oddaj-rzeczy"}>ODDAJ <br/> RZECZ</Link></button>
+                                    <button className={"header__btn"}><Link to={"/"}>ZORGANIZUJ ZBIÓRKĘ</Link></button>
+                                </>
+                            ) : (
+                                <>
+                                    <button className={"header__btn"}><Link to={"/logowanie"}>ODDAJ <br/> RZECZ</Link></button>
+                                    <button className={"header__btn"}><Link to={"/logowanie"}>ZORGANIZUJ ZBIÓRKĘ</Link></button>
+                                </>
+                            )}
+
                         </ul>
                     </section>
                 </section>

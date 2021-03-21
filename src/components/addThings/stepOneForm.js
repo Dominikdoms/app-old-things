@@ -13,7 +13,7 @@ export const StepOneForm = ({
 
     return (
         <>
-            <section className={"steps__warning"}>
+            <section className={"steps__warning"} id={"addThings"}>
                 <div className={"steps__warning-container"}>
                     <h2 className={"steps__warning-header"}>Ważne!</h2>
                     <p className={"steps__warning-text"}>Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu

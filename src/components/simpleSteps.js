@@ -2,7 +2,7 @@ import React from "react";
 import './simpleSteps.scss'
 import {Link} from "react-router-dom"
 
-export const SimpleSteps = () => {
+export const SimpleSteps = ({authUser}) => {
 
     return (
         <section className={"steps"} id={"steps"}>
@@ -33,9 +33,17 @@ export const SimpleSteps = () => {
                 </div>
             </div>
             <div className={"steps__button"}>
-                <Link to="/logowanie">
-                    <button className={"steps__btn"}>ODDAJ <br/> RZECZ</button>
-                </Link>
+                {authUser ? (
+                    <Link to="/oddaj-rzeczy">
+                        <button className={"steps__btn"}>ODDAJ <br/> RZECZ</button>
+                    </Link>
+                ) : (
+                    <Link to="/logowanie">
+                        <button className={"steps__btn"}>ODDAJ <br/> RZECZ</button>
+                    </Link>
+                )}
+
+
             </div>
 
         </section>

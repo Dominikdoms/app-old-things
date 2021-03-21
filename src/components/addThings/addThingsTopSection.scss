@@ -47,12 +47,14 @@
         color: $color-gray;
       }
     }
-
+    .addThingsEmail{
+      max-width: 365px;
+    }
     .add-things__navigation {
       width: 78%;
       height: 30px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       padding-right: 52px;
 
