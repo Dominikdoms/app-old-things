@@ -22,7 +22,8 @@ const schema = yup.object().shape({
 export const Login = () => {
     const history = useHistory();
 
-    const firebase = useContext(FirebaseContext)
+    const {firebase, authUser} = useContext(FirebaseContext)
+
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
