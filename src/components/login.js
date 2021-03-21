@@ -113,10 +113,10 @@ export const Login = () => {
                         </div>
                     </section>
                     <section className={"buttons"}>
+                        <button className={"btn-register"}>Zaloguj się</button>
                         <Link to="/rejestracja">
                             <button className={"btn-login"}>Załóż konto</button>
                         </Link>
-                        <button className={"btn-register"}>Zaloguj się</button>
                     </section>
                 </form>
             </div>

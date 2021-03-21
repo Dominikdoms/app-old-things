@@ -43,7 +43,7 @@ export const Register = () => {
 
 
         firebase.doCreateUserWithEmailAndPassword(data.email, data.password)
-            .then(data => console.log("success"))
+            .then(() => console.log("success"))
             .then( () => history.push("/oddaj-rzeczy"))
             .catch(err => console.log(err));
 
@@ -112,10 +112,10 @@ export const Register = () => {
                         </div>
                     </section>
                     <section className={"register__buttons"}>
+                        <button type="submit" className={"btn-register"}>Załóż konto</button>
                         <Link to="/logowanie">
                             <button className={"btn-login"}>Zaloguj się</button>
                         </Link>
-                        <button className={"btn-register"}>Załóż konto</button>
                     </section>
                 </form>
             </div>
