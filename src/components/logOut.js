@@ -11,7 +11,7 @@ export const LogOut = () => {
         <nav className={"navigation"}>
             <div className={"navigation__container container"}>
                 <section className={"navigation__start"}>
-                    <ul className={"navigation__login"}>
+                    <ul className={"navigation__logout"}>
                         <li><Link to="/logowanie">Zaloguj</Link></li>
                         <li className={"navigation__registration-btn"}><Link to="/rejestracja">Załóż konto</Link></li>
                     </ul>
