@@ -48,7 +48,7 @@
       }
     }
     .addThingsEmail{
-      max-width: 365px;
+      max-width: 449px;
     }
     .add-things__navigation {
       width: 78%;
@@ -58,6 +58,7 @@
       align-items: center;
       padding-right: 52px;
 
+
       li {
         padding: 10px;
 
@@ -66,6 +67,15 @@
           padding: 9px;
           border: 1px solid $color-gray;
         }
+      }
+
+    }
+    .navigation__login-start{
+      padding: 10px;
+      &:hover {
+        cursor: pointer;
+        padding: 9px;
+        border: 1px solid $color-gray;
       }
     }
   }

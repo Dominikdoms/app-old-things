@@ -25,6 +25,7 @@ export const AddThingsTopSection = ({authUser, setAuthUser}) => {
                         {authUser ? (
                             <>
                                 <li>{authUser.email}</li>
+                                <li className={"navigation__login-start"}><Link to="/">Start</Link></li>
                                 <LinkScroll to="addThings" smooth={true} duration={500}>
                                         <li className={"header__registration-btn"}>Oddaj rzeczy</li>
                                 </LinkScroll>
@@ -38,9 +39,9 @@ export const AddThingsTopSection = ({authUser, setAuthUser}) => {
                             </>
                         )}
                     </ul>
-                    <ul className={"add-things__navigation"}>
-                        <li><Link to="/" smooth={true} duration={1000}>Start</Link></li>
-                    </ul>
+                    {/*<ul className={"add-things__navigation"}>*/}
+                    {/*    <li><Link to="/">Start</Link></li>*/}
+                    {/*</ul>*/}
 
                     <section className={"add-things__give-things"}>
                         <h1>Oddaj rzeczy, których już nie chcesz <br/> POTRZEBUJĄCYM</h1>

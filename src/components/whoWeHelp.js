@@ -1,14 +1,16 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import clx from 'classnames';
 import './whoWeHelp.scss'
 import {Pagination} from "./whoWeHelp/pagination";
+import {FirebaseContext} from "../App";
+import Firebase from "./firebaseData";
 
+
+// const {firebase, authUser} = useContext(FirebaseContext)
+const firebase = new Firebase()
 export const WhoWeHelp = () => {
 
-
-
-
-    const API = "http://localhost:3000/"
+    // const API = "http://localhost:3000/"
     const [organizations, setOrganizations] = useState([]);
     const [current, setCurrent] = useState('fundation');
     const [fundations, setFundations] = useState([])
@@ -25,6 +27,8 @@ export const WhoWeHelp = () => {
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
+
+
     const handleCurrent = e => {
         const {id} = e.target;
         setCurrentPage(1)
@@ -32,13 +36,22 @@ export const WhoWeHelp = () => {
     }
 
     useEffect(() => {
-        fetch(`${API}${current}`)
-            .then(response => response.json())
-            .then(data => {
-                setOrganizations(data)
-                // console.log(data.length)
-            })
-            .catch(err => console.log(err))
+        firebase.db.collection(`${current}`).onSnapshot((querySnapshot) => {
+                const collection = [];
+                console.log(querySnapshot)
+                querySnapshot.forEach((snap) => {
+                    collection.push(snap.data())
+                })
+            setOrganizations(collection)
+            }
+        )
+        // fetch(`${API}${current}`)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         setOrganizations(data)
+        //         // console.log(data.length)
+        //     })
+        //     .catch(err => console.log(err))
 
         if (current === "fundation") setFundations("Fundacja")
         if (current === "organization") setFundations("Organizacja")
@@ -74,8 +87,8 @@ export const WhoWeHelp = () => {
                     się zajmują, komu pomagają i czego potrzebują.</p>
                 <ul className={"fundations__all"}>{
                     // organizations.map(el => (
-                    currentPosts.map(el => (
-                        <section key={el.id} className={"fundations__list"}>
+                    currentPosts.map((el, index) => (
+                        <section key={index} className={"fundations__list"}>
                             <div className={"fundations__list-items"}>
                                 <li className={"fundations__list-items-name"}>{`${fundations} "${el.name}"`}</li>
                                 <li className={"fundations__list-items-target"}>{el.target}</li>
@@ -84,7 +97,8 @@ export const WhoWeHelp = () => {
                         </section>
                     ))
                 }</ul>
-                <Pagination postsPerPage={postsPerPage} totalPosts={organizations.length} paginate={paginate} current={currentPage}/>
+                <Pagination postsPerPage={postsPerPage} totalPosts={organizations.length} paginate={paginate}
+                            current={currentPage}/>
             </div>
         </section>
     )
