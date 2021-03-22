@@ -28,12 +28,13 @@ export const Register = () => {
     const history = useHistory();
     const {firebase, authUser} = useContext(FirebaseContext)//my context firebase with user
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [confirmPassword, setConfirmPassword] = useState('');
 
     const {register, handleSubmit, errors} = useForm({
         resolver: yupResolver(schema),
+        mode: "onBlur"
     });
 
 
@@ -43,14 +44,17 @@ export const Register = () => {
 
 
         firebase.doCreateUserWithEmailAndPassword(data.email, data.password)
-            .then(() => console.log("success"))
+            .then((user) => {
+                console.log(user)
+                // firebase.db.collection("Users").doc(user.user.email).set(user.user)
+            })
             .then( () => history.push("/oddaj-rzeczy"))
             .catch(err => console.log(err));
 
 
-        setEmail('')
-        setPassword('')
-        setConfirmPassword('')
+        // setEmail('')
+        // setPassword('')
+        // setConfirmPassword('')
     }
 
 
@@ -74,8 +78,6 @@ export const Register = () => {
                             <div>
                                 <p>Email</p>
                                 <input ref={register}
-                                       value={email}
-                                       onChange={e => setEmail(e.target.value)}
                                        name={"email"}
                                        type="text"/>
                                 <span className={clx({error: errors.email})}/>
@@ -84,8 +86,6 @@ export const Register = () => {
                             <div>
                                 <p>Hasło</p>
                                 <input ref={register}
-                                       value={password}
-                                       onChange={e => setPassword(e.target.value)}
                                        name={"password"}
                                        type="password"/>
                                 <span className={clx({error: errors.password})}/>
@@ -94,8 +94,6 @@ export const Register = () => {
                             <div>
                                 <p>Powtórz hasło</p>
                                 <input ref={register}
-                                       value={confirmPassword}
-                                       onChange={e => setConfirmPassword(e.target.value)}
                                        name={"confirmPassword"}
                                        type="password"/>
                                 <span className={clx({error: errors.confirmPassword})}/>

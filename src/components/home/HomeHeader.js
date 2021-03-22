@@ -11,9 +11,10 @@ import Firebase from "../firebaseData";
 // background-image: url("../../assets/Hero-Image.png");
 
 // const {firebase, authUser} = useContext(FirebaseContext)
-const firebase = new Firebase()
+// const firebase = new Firebase()
 export const HomeHeader = (props) => {
-    const {authUser, setAuthUser} = props;
+    const {firebase, authUser, setAuthUser} = useContext(FirebaseContext)
+    // const {authUser, setAuthUser} = props;
     const handleLogout = () => {
         setAuthUser('');
         firebase.auth.signOut();
