@@ -25,51 +25,43 @@ const schema = yup.object().shape({
 
 export const Register = () => {
     const history = useHistory();
-    const {firebase, authUser} = useContext(FirebaseContext)//my context firebase with user
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-
+    const {firebase} = useContext(FirebaseContext)//my context firebase with user
 
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
     const {register, handleSubmit, errors} = useForm({
         resolver: yupResolver(schema),
+        mode: "onBlur"
     });
-    console.log(emailError);
+
 
 //firebase
 
-    const onSubmit = (e) => {
-        e.preventDefault()
-        password === confirmPassword ? (
-        firebase.doCreateUserWithEmailAndPassword(email, password)
-            .then(() => console.log("success"))
+    const onSubmit = (data) => {
+
+
+        firebase.doCreateUserWithEmailAndPassword(data.email, data.password)
+            .then((user) => {
+                console.log(user)
+                // firebase.db.collection("Users").doc(user.user.email).set(user.user)
+            })
             .then( () => history.push("/oddaj-rzeczy"))
             .catch(err => {
                 switch(err.code) {
                     case "auth/email-already-in-use":
-                        setEmailError(err.message);
+                        setEmailError("Podany email jest nieprawidłowy!");
                         break;
 
                     case "auth/invalid-email":
-                        setEmailError(err.message);
+                        setEmailError("Podany email jest nieprawidłowy!");
                         break;
 
                     case "auth/weak-password":
-                        setPasswordError(err.message);
+                        setPasswordError("Podane hasło jest nieprawidłowe!");
                         break;
                 }
             })
-        ) : (
-            setPasswordError("Passwords do not match")
-        )
-
-        setEmail('')
-        setPassword('')
-        setConfirmPassword('')
     }
 
 
@@ -84,7 +76,7 @@ export const Register = () => {
                     </ul>
                 </section>
 
-                <form onSubmit={onSubmit} className={"register"}>
+                <form onSubmit={handleSubmit(onSubmit)} className={"register"}>
                     <section className={"register"}>
                         <header>
                             <h1>Załóż konto</h1>
@@ -93,32 +85,26 @@ export const Register = () => {
                             <div>
                                 <p>Email</p>
                                 <input ref={register}
-                                       value={email}
-                                       onChange={e => setEmail(e.target.value)}
                                        name={"email"}
                                        type="text"/>
-                                <span className={clx({error: emailError})}/>
-                                {/*<p className={"register__error"}>{emailError}</p>*/}
+                                <span className={clx({error: errors.email})}/>
+                                <p className={"register__error"}>{errors.email?.message ? errors.email?.message : emailError}</p>
                             </div>
                             <div>
                                 <p>Hasło</p>
                                 <input ref={register}
-                                       value={password}
-                                       onChange={e => setPassword(e.target.value)}
                                        name={"password"}
                                        type="password"/>
-                                <span className={clx({error: passwordError})}/>
-                                {/*<p className={"register__error"}>{errors.password?.message}</p>*/}
+                                <span className={clx({error: errors.password})}/>
+                                <p className={"register__error"}>{errors.password?.message ? errors.password?.message : passwordError}</p>
                             </div>
                             <div>
                                 <p>Powtórz hasło</p>
                                 <input ref={register}
-                                       value={confirmPassword}
-                                       onChange={e => setConfirmPassword(e.target.value)}
                                        name={"confirmPassword"}
                                        type="password"/>
-                                <span className={clx({error: passwordError})}/>
-                                {/*<p className={"register__error"}>{errors.confirmPassword?.message}</p>*/}
+                                <span className={clx({error: errors.confirmPassword})}/>
+                                <p className={"register__error"}>{errors.confirmPassword?.message}</p>
                             </div>
                         </div>
                     </section>
@@ -129,9 +115,6 @@ export const Register = () => {
                         </Link>
                     </section>
                 </form>
-                <p style={{color:"red", display: "flex", alignSelf: "center", paddingTop: 10}}
-                   className="errorMsg"> {emailError} {passwordError}
-                </p>
             </div>
         </nav>
     )

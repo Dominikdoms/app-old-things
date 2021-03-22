@@ -34,7 +34,7 @@ function App() {
 
 
     return (
-        <FirebaseContext.Provider value={{firebase: new Firebase(), authUser}}>
+        <FirebaseContext.Provider value={{firebase: new Firebase(), authUser, setAuthUser}}>
         <BrowserRouter>
             <>
                 <Switch>
