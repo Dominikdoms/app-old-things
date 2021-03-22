@@ -2,7 +2,6 @@ import React, {useState, useContext} from "react";
 import {
     Link, useHistory
 } from 'react-router-dom';
-import {Link as LinkScroll} from "react-scroll";
 import clx from "classnames"
 import './register.scss'
 //validation
@@ -26,9 +25,10 @@ const schema = yup.object().shape({
 
 export const Register = () => {
     const history = useHistory();
-    const {firebase, authUser} = useContext(FirebaseContext)//my context firebase with user
+    const {firebase} = useContext(FirebaseContext)//my context firebase with user
 
-    // const [emailError, setEmailError] = useState()
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
 
     const {register, handleSubmit, errors} = useForm({
         resolver: yupResolver(schema),
@@ -48,25 +48,20 @@ export const Register = () => {
             })
             .then( () => history.push("/oddaj-rzeczy"))
             .catch(err => {
-                // switch(err.code) {
-                //     case "auth/email-already-in-use":
-                //         setEmailError(err.message);
-                //         break;
-                //
-                //     case "auth/invalid-email":
-                //         setEmailError(err.message);
-                //         break;
-                //
-                //     case "auth/weak-password":
-                //         setPasswordError(err.message);
-                //         break;
-                // }
+                switch(err.code) {
+                    case "auth/email-already-in-use":
+                        setEmailError("Podany email jest nieprawidłowy!");
+                        break;
+
+                    case "auth/invalid-email":
+                        setEmailError("Podany email jest nieprawidłowy!");
+                        break;
+
+                    case "auth/weak-password":
+                        setPasswordError("Podane hasło jest nieprawidłowe!");
+                        break;
+                }
             })
-
-
-        // setEmail('')
-        // setPassword('')
-        // setConfirmPassword('')
     }
 
 
@@ -93,7 +88,7 @@ export const Register = () => {
                                        name={"email"}
                                        type="text"/>
                                 <span className={clx({error: errors.email})}/>
-                                <p className={"register__error"}>{errors.email?.message}</p>
+                                <p className={"register__error"}>{errors.email?.message ? errors.email?.message : emailError}</p>
                             </div>
                             <div>
                                 <p>Hasło</p>
@@ -101,7 +96,7 @@ export const Register = () => {
                                        name={"password"}
                                        type="password"/>
                                 <span className={clx({error: errors.password})}/>
-                                <p className={"register__error"}>{errors.password?.message}</p>
+                                <p className={"register__error"}>{errors.password?.message ? errors.password?.message : passwordError}</p>
                             </div>
                             <div>
                                 <p>Powtórz hasło</p>
