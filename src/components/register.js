@@ -28,9 +28,7 @@ export const Register = () => {
     const history = useHistory();
     const {firebase, authUser} = useContext(FirebaseContext)//my context firebase with user
 
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
-    // const [confirmPassword, setConfirmPassword] = useState('');
+    // const [emailError, setEmailError] = useState()
 
     const {register, handleSubmit, errors} = useForm({
         resolver: yupResolver(schema),
@@ -49,7 +47,21 @@ export const Register = () => {
                 // firebase.db.collection("Users").doc(user.user.email).set(user.user)
             })
             .then( () => history.push("/oddaj-rzeczy"))
-            .catch(err => console.log(err));
+            .catch(err => {
+                // switch(err.code) {
+                //     case "auth/email-already-in-use":
+                //         setEmailError(err.message);
+                //         break;
+                //
+                //     case "auth/invalid-email":
+                //         setEmailError(err.message);
+                //         break;
+                //
+                //     case "auth/weak-password":
+                //         setPasswordError(err.message);
+                //         break;
+                // }
+            })
 
 
         // setEmail('')
