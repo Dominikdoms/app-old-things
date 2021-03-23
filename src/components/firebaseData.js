@@ -21,7 +21,6 @@ class Firebase {
             app.app(); // if already initialized, use that one
         }
 
-
         this.auth = app.auth();
         this.db = app.firestore();
     }
@@ -33,6 +32,7 @@ class Firebase {
 
     doSignInWithEmailAndPassword = (email, password) =>
         this.auth.signInWithEmailAndPassword(email, password);
+
 
     doSignOut = () => this.auth.signOut();
 
@@ -50,17 +50,3 @@ class Firebase {
 
 export default Firebase;
 
-
-
-
-
-
-
-
-// export const firebaseData = firebase.initializeApp(firebaseConfig).firestore();
-
-
-// var db = firebase.firestore();
-// Wartości parametru „initializeApp” można znaleźć w pliku „firebaseConfig”
-// aplikacji internetowej. Aby zachować dane, gdy urządzenie utraci połączenie,
-// zapoznaj się z dokumentacją dotyczącą włączania danych offline .
