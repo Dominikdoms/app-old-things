@@ -21,7 +21,7 @@ export const FirebaseContext = createContext(null)
 function App() {
     const [authUser, setAuthUser] = useState(null);
     const firebase = new Firebase()
-    console.log(authUser)
+    // console.log(authUser)
     useEffect(() => {
         firebase.auth.onAuthStateChanged(authUser => {
             if(authUser) {

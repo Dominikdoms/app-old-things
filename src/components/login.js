@@ -10,7 +10,7 @@ import {FirebaseContext} from "../App";
 export const Login = () => {
     const history = useHistory();
 
-    const {firebase, authUser} = useContext(FirebaseContext)
+    const {firebase} = useContext(FirebaseContext)
 
 
     const [email, setEmail] = useState('');
@@ -18,14 +18,14 @@ export const Login = () => {
     //firebase
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    console.log(emailError)
-    console.log(passwordError)
+    // console.log(emailError)
+    // console.log(passwordError)
 
     const onSubmit = (e) => {
         e.preventDefault()
         console.log(e);
         firebase.doSignInWithEmailAndPassword(email, password)//dane z inputów
-            .then(data => console.log(data))
+            // .then(data => console.log(data))
             .then( () => history.push("/"))
             .catch(err => {
                 switch(err.code) {

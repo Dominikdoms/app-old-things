@@ -3,12 +3,12 @@ import clx from 'classnames';
 import './whoWeHelp.scss'
 import {Pagination} from "./whoWeHelp/pagination";
 import {FirebaseContext} from "../App";
-import Firebase from "./firebaseData";
 
 
-// const {firebase, authUser} = useContext(FirebaseContext)
-const firebase = new Firebase()
+
+
 export const WhoWeHelp = () => {
+    const {firebase} = useContext(FirebaseContext)
 
     // const API = "http://localhost:3000/"
     const [organizations, setOrganizations] = useState([]);
@@ -38,7 +38,7 @@ export const WhoWeHelp = () => {
     useEffect(() => {
         firebase.db.collection(`${current}`).onSnapshot((querySnapshot) => {
                 const collection = [];
-                console.log(querySnapshot)
+                // console.log(querySnapshot)
                 querySnapshot.forEach((snap) => {
                     collection.push(snap.data())
                 })
