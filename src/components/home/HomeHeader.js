@@ -10,7 +10,6 @@ import {FirebaseContext} from "../../App";
 import HamburgerMenu from 'react-hamburger-menu';
 
 export const HomeHeader = () => {
-    //hooks only work inside the component
     const {firebase, authUser, setAuthUser} = useContext(FirebaseContext)
 
     const handleLogout = () => {
@@ -97,26 +96,6 @@ export const HomeHeader = () => {
                         </ul>
                     </>
                     }
-                    <section className={"header__give-things"}>
-                        <h1>Zacznij Pomagać! <br/> Oddaj niechciane rzeczy w zaufane ręce</h1>
-                        <ul className={"header__buttons"}>
-                            {authUser ? (
-                                <>
-                                    <button className={"header__btn"}><Link
-                                        to={"/oddaj-rzeczy"}>ODDAJ <br/> RZECZ</Link></button>
-                                    <button className={"header__btn"}><Link to={"/"}>ZORGANIZUJ ZBIÓRKĘ</Link></button>
-                                </>
-                            ) : (
-                                <>
-                                    <button className={"header__btn"}><Link to={"/logowanie"}>ODDAJ <br/> RZECZ</Link>
-                                    </button>
-                                    <button className={"header__btn"}><Link to={"/logowanie"}>ZORGANIZUJ ZBIÓRKĘ</Link>
-                                    </button>
-                                </>
-                            )}
-
-                        </ul>
-                    </section>
                 </section>
             </div>
         </header>
