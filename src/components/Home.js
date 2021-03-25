@@ -1,6 +1,6 @@
 import React from "react"
 import {HomeHeader} from "./home/HomeHeader"
-import {HomeHelp} from './home/HomeHelp'
+import {WelcomeSection} from './home/WelcomeSection'
 import {HomeThreeColumns} from "./home/HomeThreeColumns";
 
 export const Home = ({authUser, setAuthUser}) => {
@@ -9,7 +9,7 @@ export const Home = ({authUser, setAuthUser}) => {
 
         <>
             <HomeHeader authUser={authUser} setAuthUser={setAuthUser}/>
-            <HomeHelp/>
+            <WelcomeSection/>
             <HomeThreeColumns/>
         </>
     )

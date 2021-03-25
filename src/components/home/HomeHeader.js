@@ -5,7 +5,6 @@ import {
 import {Link as LinkScroll} from "react-scroll";
 import clx from "classnames"
 import "./homeHeader.scss"
-import HeroImage from "../../assets/Hero-Image.png"
 import {FirebaseContext} from "../../App";
 import HamburgerMenu from 'react-hamburger-menu';
 
@@ -45,11 +44,7 @@ export const HomeHeader = () => {
     return (
         <header className={"header"}>
             <div className={"header__container container"}>
-                <section className="header__img">
-                    <img alt={"things"} src={HeroImage}/>
-                </section>
                 <section className={"header__start"}>
-
                     {isMobile &&
                     <div className="mobile-menubar">
                         <HamburgerMenu
