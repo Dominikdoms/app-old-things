@@ -1,5 +1,5 @@
 import React from "react";
-import './simpleSteps.scss'
+// import './simpleSteps.scss'
 import {Link} from "react-router-dom"
 
 export const SimpleSteps = ({authUser}) => {

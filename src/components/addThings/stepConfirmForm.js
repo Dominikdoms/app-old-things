@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-import './stepConfirmFrom.scss'
+// import './stepConfirmFrom.scss'
 import movementIcon from '../../assets/movement-Icon.png';
 import shirtIcon from '../../assets/shirt-icon.png';
 import {FirebaseContext} from "../../App";

@@ -1,5 +1,5 @@
 import React from "react";
-import './contactAndFooter.scss'
+// import './contactAndFooter.scss'
 import {Contact} from "./contact"
 import {Footer} from "./footer"
 

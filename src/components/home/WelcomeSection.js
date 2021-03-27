@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {
     Link
 } from 'react-router-dom';
-import "./WelcomeSection.scss"
+// import "./WelcomeSection.scss"
 import HeroImage from "../../assets/Hero-Image.png"
 import {FirebaseContext} from "../../App";
 

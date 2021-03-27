@@ -1,6 +1,6 @@
 import React from "react";
 import People from "../assets/People.png"
-import './aboutUs.scss'
+// import './aboutUs.scss'
 
 export const AboutUs = () => {
 
@@ -13,7 +13,7 @@ export const AboutUs = () => {
                         black-eyed pea prairie turnip leek lentil turnip greens parsnip.</p>
                 </div>
                 <div className={"about__image"}>
-                    <img className={"about__img"} src={People} alt="people"/>
+                    {/*<img className={"about__img"} src={People} alt="people"/>*/}
                 </div>
             </div>
         </section>

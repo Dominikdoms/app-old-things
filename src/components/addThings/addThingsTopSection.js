@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import {Link as LinkScroll, animateScroll as scroll} from "react-scroll";
 import clx from "classnames"
-import './addThingsTopSection.scss';
+// import './addThingsTopSection.scss';
 import sweater from "../../assets/Header-Form-Background.png";
 import Firebase from "../firebaseData";
 // import Firebase from "../firebaseData";

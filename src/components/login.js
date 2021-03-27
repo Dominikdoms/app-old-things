@@ -3,7 +3,7 @@ import {
     Link, useHistory
 } from 'react-router-dom';
 import clx from "classnames"
-import './login.scss'
+// import './login.scss'
 import {FirebaseContext} from "../App";
 
 

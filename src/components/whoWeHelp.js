@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from "react";
 import clx from 'classnames';
-import './whoWeHelp.scss'
+// import './whoWeHelp.scss'
 import {Pagination} from "./whoWeHelp/pagination";
 import {FirebaseContext} from "../App";
 

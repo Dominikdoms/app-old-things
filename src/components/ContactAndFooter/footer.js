@@ -1,5 +1,5 @@
 import React from "react";
-import "./footer.scss"
+// import "./footer.scss"
 import {ReactComponent as Insta} from '../../assets/instagram-brands.svg';
 import {ReactComponent as Facebook} from '../../assets/facebook-square-brands.svg';
 

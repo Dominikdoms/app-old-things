@@ -1,5 +1,5 @@
 import React from "react";
-import './stepFinalForm.scss';
+// import './stepFinalForm.scss';
 
 export const StepFinalForm = () => {
 

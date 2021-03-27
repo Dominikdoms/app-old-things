@@ -1,5 +1,5 @@
 import React from "react";
-import './stepFourFrom.scss';
+// import './stepFourFrom.scss';
 
 export const StepFourForm = ({
                                  pickUpStreet, setPickUpStreet,

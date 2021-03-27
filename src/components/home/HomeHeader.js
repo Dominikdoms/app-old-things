@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import {Link as LinkScroll} from "react-scroll";
 import clx from "classnames"
-import "./homeHeader.scss"
+// import "./homeHeader.scss"
 import {FirebaseContext} from "../../App";
 import HamburgerMenu from 'react-hamburger-menu';
 
