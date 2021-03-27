@@ -8,7 +8,6 @@ import './register.scss'
 import {useForm} from "react-hook-form";
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from "yup";
-
 import {FirebaseContext} from "../App";
 
 
@@ -42,9 +41,11 @@ export const Register = () => {
 
 
         firebase.doCreateUserWithEmailAndPassword(data.email, data.password)
-            .then((user) => {
-                console.log(user)
-                // firebase.db.collection("Users").doc(user.user.email).set(user.user)
+            .then(() => {
+                // console.log(user)
+                firebase.db.collection("Users").doc(firebase.auth.currentUser.uid).set({
+                    email: data.email
+                })
             })
             .then( () => history.push("/oddaj-rzeczy"))
             .catch(err => {

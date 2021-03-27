@@ -51,3 +51,9 @@ Po potwierdzeniu danych dostajemy dostęp do części serwisu zarezerwowanych ty
 - Firebase Hosting
 - Walidacja danych
 - Inne
+
+# How to install:
+1. ``` https://github.com/Dominikdoms/app-old-things.git ```
+2. ```  cd app-old-things ```
+3. ``` npm i ```
+4. ``` npm start ```

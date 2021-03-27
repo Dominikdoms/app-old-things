@@ -31,8 +31,8 @@ export const Contact = () => {
 
     const API = "https://fer-api.coderslab.pl/v1/portfolio/contact"
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = () => {
+        // console.log(data);
         setSuccess(`Wiadomość została wysłana! Wkrótce się skontaktujemy.`)
 
         const newMessage = {
@@ -49,8 +49,8 @@ export const Contact = () => {
             }
         })
             .then(response => response.json)
-            .then(data => {
-                console.log(data)
+            .then(() => {
+                // console.log(data)
             })
             .catch(err => console.log(err))
 

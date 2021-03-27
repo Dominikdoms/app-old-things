@@ -33,7 +33,7 @@ export const StepConfirmForm = ({
                                     setPage
                                 }) => {
 
-    const {firebase, authUser} = useContext(FirebaseContext)
+    const {firebase} = useContext(FirebaseContext)
     const [things, setThings] = useState([]);
     const [toWho, setToWho] = useState([]);
 
@@ -68,8 +68,8 @@ export const StepConfirmForm = ({
 
     const addDate = () => {
         const randomID = Math.random().toString(36).substr(2, 9);
-        firebase.db.collection("Users/User2/thingsCollection").doc(randomID).set(collection)
-            .then(data => console.log("success"))
+        firebase.db.collection(`Users/${firebase.auth.currentUser.uid}/thingsCollection`).doc(randomID).set(collection)
+            // .then(data => console.log("success"))
             .catch(err => console.log(err));
     }
 
