@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import {Link as LinkScroll} from "react-scroll";
 import clx from "classnames"
-// import "./homeHeader.scss"
+import "./homeHeader.scss"
 import {FirebaseContext} from "../../App";
 import HamburgerMenu from 'react-hamburger-menu';
 
@@ -42,7 +42,7 @@ export const HomeHeader = () => {
     }, [])
 
     return (
-        <header className={"header"}>
+        <header className={clx({burgerOpen: showMenu},"header")}>
             <div className={"header__container container"}>
                 <section className={"header__start"}>
                     {isMobile &&
@@ -66,28 +66,48 @@ export const HomeHeader = () => {
                         <ul className={clx({header__email: authUser}, "header__login")}>
                             {authUser ? (
                                 <>
-                                    <li>{authUser.email}</li>
+                                    {!isMobile && <li>{authUser.email}</li>}
                                     <Link to="/oddaj-rzeczy">
                                         <li className={"header__registration-btn"}>Oddaj rzeczy</li>
                                     </Link>
-                                    <li onClick={handleLogout}><Link to="/wylogowano">wyloguj</Link></li>
+                                    <Link to="/wylogowano"><li onClick={handleLogout}>wyloguj</li></Link>
                                 </>
                             ) : (
                                 <>
-                                    <li><Link to="/logowanie">Zaloguj</Link></li>
-                                    <li className={"header__registration-btn"}><Link to="/rejestracja">Załóż
-                                        konto</Link>
-                                    </li>
+                                <Link to="/logowanie"><li>Zaloguj</li>
+                                </Link>
+                                <Link to="/rejestracja"><li className={"header__registration-btn"}>Załóż
+                                        konto</li></Link>
                                 </>
                             )}
                         </ul>
                         <ul className={"header__navigation"}>
-                            <li><Link to="/" smooth={true} duration={1000}>Start</Link></li>
-                            <li><LinkScroll to="steps" smooth={true} duration={1000}>O co chodzi?</LinkScroll></li>
-                            <li><LinkScroll to="aboutUs" smooth={true} duration={1000}>O nas</LinkScroll></li>
-                            <li><LinkScroll to="fundations" smooth={true} duration={1000}>Fundacja i
-                                Organizacje</LinkScroll></li>
-                            <li><LinkScroll to="contact" smooth={true} duration={1000}>Kontakt</LinkScroll></li>
+                            <Link to="/"><li>Start</li></Link>
+                            <LinkScroll to="steps"
+                                        smooth={true}
+                                        duration={1000}
+                                        onClick={handleShowMenu}>
+                                <li>O co chodzi?</li>
+                            </LinkScroll>
+
+                            <LinkScroll to="aboutUs"
+                                        smooth={true}
+                                        duration={1000}
+                                        onClick={handleShowMenu}>
+                                <li>O nas</li>
+                            </LinkScroll>
+                            <LinkScroll to="fundations"
+                                        smooth={true}
+                                        duration={1000}
+                                        onClick={handleShowMenu}>
+                                <li>Fundacja i Organizacje</li>
+                            </LinkScroll>
+                            <LinkScroll to="contact"
+                                        smooth={true}
+                                        duration={1000}
+                                        onClick={handleShowMenu}>
+                                <li>Kontakt</li>
+                            </LinkScroll>
                         </ul>
                     </>
                     }
