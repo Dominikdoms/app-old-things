@@ -1,6 +1,6 @@
 import React from "react";
 import {useState} from "react"
-// import "./homeThreeColumns.scss"
+import "./homeThreeColumns.scss"
 
 export const HomeThreeColumns = () => {
     const [bags, setBags] = useState("10")//fetch

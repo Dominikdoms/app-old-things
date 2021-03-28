@@ -1,40 +1,66 @@
 @import "../../sass/settings/fonts";
-.home__tree-column{
+@import "../../sass/settings/mixins";
+
+.home__tree-column {
   width: 100%;
   height: 384px;
   background-image: url("../../assets/3 Columns Background.png");
+  @include mobile{
+    height: 600px;
+    display: flex;
 
-  .container{
+  }
+
+  .container {
     margin: 0 auto;
+    width: 100%;
     max-width: 1900px;
     display: flex;
     justify-content: space-around;
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 
-.home__column{
+.home__column {
   padding-top: 65px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 334px;
-  h2{
+  width: 100%;
+  max-width: 334px;
+  @include mobile{
+    padding-top: unset;
+    border: 1px solid black;
+    margin: 10px;
+  }
+
+  h2 {
     font-size: 90px;
     font-family: $font-base;
     font-weight: 300;
     line-height: 100px;
   }
-  h3{
+
+  h3 {
     font-size: 18px;
     font-family: $font-base;
     font-weight: 400;
     line-height: 60px;
   }
-  p{
+
+  p {
     font-size: 16px;
     font-family: $font-base;
     font-weight: 400;
     line-height: 25px;
+    padding: 10px;
+    @include mobile {
+      display: none;
+    }
   }
 }
