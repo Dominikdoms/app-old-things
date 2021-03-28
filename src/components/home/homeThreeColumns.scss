@@ -8,7 +8,12 @@
   @include mobile{
     height: 600px;
     display: flex;
-
+  }
+  @media (max-width: 291px) {
+    height: 700px;
+  }
+  @media (max-width: 236px) {
+    height: 750px;
   }
 
   .container {
@@ -34,6 +39,7 @@
   width: 100%;
   max-width: 334px;
   @include mobile{
+    width: 80%;
     padding-top: unset;
     border: 1px solid black;
     margin: 10px;
