@@ -2,8 +2,7 @@ import React, {useContext} from "react";
 import {
     Link
 } from 'react-router-dom';
-// import "./WelcomeSection.scss"
-import HeroImage from "../../assets/Hero-Image.png"
+import "./WelcomeSection.scss"
 import {FirebaseContext} from "../../App";
 
 
@@ -13,13 +12,10 @@ export const WelcomeSection = () => {
     return (
         <section className={"welcome"}>
             <div className={"welcome__container container"}>
-                {/*<section className="header__img">*/}
-                {/*    <img alt={"things"} src={HeroImage}/>*/}
-                {/*</section>*/}
                 <section className={"welcome__start"}>
                     <section className={"welcome__give-things"}>
                         <h1>Zacznij Pomagać! <br/> Oddaj niechciane rzeczy w zaufane ręce</h1>
-                        <ul className={"header__buttons"}>
+                        <ul className={"welcome__buttons"}>
                             {authUser ? (
                                 <>
                                     <button className={"welcome__btn"}><Link
