@@ -1,11 +1,8 @@
 import React, {useState, useEffect, useContext} from "react";
 import clx from 'classnames';
-// import './whoWeHelp.scss'
+import './whoWeHelp.scss'
 import {Pagination} from "./whoWeHelp/pagination";
 import {FirebaseContext} from "../App";
-
-
-
 
 export const WhoWeHelp = () => {
     const {firebase} = useContext(FirebaseContext)
@@ -24,10 +21,7 @@ export const WhoWeHelp = () => {
     const indexOfFirstPost = indexOfLastPost - postsPerPage //index pierwszego posta
     const currentPosts = organizations.slice(indexOfFirstPost, indexOfLastPost)//obecny post
 
-
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
-
-
 
     const handleCurrent = e => {
         const {id} = e.target;
@@ -38,20 +32,12 @@ export const WhoWeHelp = () => {
     useEffect(() => {
         firebase.db.collection(`${current}`).onSnapshot((querySnapshot) => {
                 const collection = [];
-                // console.log(querySnapshot)
                 querySnapshot.forEach((snap) => {
                     collection.push(snap.data())
                 })
-            setOrganizations(collection)
+                setOrganizations(collection)
             }
         )
-        // fetch(`${API}${current}`)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         setOrganizations(data)
-        //         // console.log(data.length)
-        //     })
-        //     .catch(err => console.log(err))
 
         if (current === "fundation") setFundations("Fundacja")
         if (current === "organization") setFundations("Organizacja")
@@ -63,30 +49,21 @@ export const WhoWeHelp = () => {
         <section className={"fundations"} id="fundations">
             <div className={"fundations__container"}>
                 <h2 className={"fundations__header"}>Komu pomagamy?</h2>
-                <nav>
-                    <ul className={"fundations__nav"}>
-                        <li>
-                            <button className={clx({active: current === "fundation"})} id="fundation"
-                                    onClick={handleCurrent}>Fundacjom
-                            </button>
-                        </li>
-                        <li>
-                            <button className={clx({active: current === "organization"})} id="organization"
-                                    onClick={handleCurrent}>Organizacjom <br/> Pozarządowym
-                            </button>
-                        </li>
-                        <li>
-                            <button className={clx({active: current === "collection"})} id="collection"
-                                    onClick={handleCurrent}>Lokalnym <br/> zbiórkom
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
+                <ul className={"fundations__nav"}>
+                    <li className={clx({active: current === "fundation"})} id="fundation"
+                        onClick={handleCurrent}>Fundacjom
+                    </li>
+                    <li className={clx({active: current === "organization"})} id="organization"
+                        onClick={handleCurrent}>Organizacjom <br/> Pozarządowym
+                    </li>
+                    <li className={clx({active: current === "collection"})} id="collection"
+                        onClick={handleCurrent}>Lokalnym <br/> zbiórkom
+                    </li>
+                </ul>
                 <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić
                     czym
                     się zajmują, komu pomagają i czego potrzebują.</p>
                 <ul className={"fundations__all"}>{
-                    // organizations.map(el => (
                     currentPosts.map((el, index) => (
                         <section key={index} className={"fundations__list"}>
                             <div className={"fundations__list-items"}>
@@ -97,8 +74,11 @@ export const WhoWeHelp = () => {
                         </section>
                     ))
                 }</ul>
-                <Pagination postsPerPage={postsPerPage} totalPosts={organizations.length} paginate={paginate}
-                            current={currentPage}/>
+                <Pagination postsPerPage={postsPerPage}
+                            totalPosts={organizations.length}
+                            paginate={paginate}
+                            current={currentPage}
+                />
             </div>
         </section>
     )
