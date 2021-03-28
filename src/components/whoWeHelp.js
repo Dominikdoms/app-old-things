@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from "react";
 import clx from 'classnames';
 import './whoWeHelp.scss'
-import {Pagination} from "./whoWeHelp/pagination";
+import {Pagination} from "./whoWeHelp-pagination/pagination";
 import {FirebaseContext} from "../App";
 
 export const WhoWeHelp = () => {
