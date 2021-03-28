@@ -1,5 +1,6 @@
 .pagination {
   display: flex;
+  width: 100%;
 
   &__page-item{
     padding: 10px;
@@ -8,7 +9,8 @@
   button{
     background: none;
     border: none;
-    width: 40px;
+    width: 100%;
+    min-width: 40px;
     height: 50px;
     &:hover{
       border: 1px solid rgba(0,0,0,0.5);
