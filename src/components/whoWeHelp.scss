@@ -1,5 +1,6 @@
 @import "../sass/settings/fonts";
 @import "../sass/settings/colors";
+@import "../sass/settings/mixins";
 
 .fundations {
   width: 100%;
@@ -43,21 +44,34 @@
     justify-content: space-evenly;
     color: black;
 
+    @media (max-width: 678px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
     a {
       text-decoration: none;
       color: $color-dark-brown;
       font-size: 24px;
     }
 
-    button {
-      width: 208px;
+    li {
+      width: 100%;
+      max-width: 208px;
       height: 79px;
-      margin: 0 60px;
-      background: none;
-      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       &:hover {
         border: 1px solid rgba(0, 0, 0, 0.5);
+      }
+
+      @media (max-width: 678px) {
+        width: 80%;
+        max-width: 193px;
+        height: 50px;
+        margin-bottom: 14px;
       }
     }
 
@@ -67,8 +81,9 @@
   }
 
   p {
-    width: 640px;
-    height: 94px;
+    width: 100%;
+    max-width: 640px;
+    height: 100%;
     padding-top: 24px;
     padding-bottom: 58px;
     font-size: 22px;
@@ -77,7 +92,8 @@
   }
 
   .fundations__all {
-    width: 100%;
+    width: 95%;
+    height: 100%;
   }
 
   &__list {
@@ -85,11 +101,18 @@
     justify-content: space-between;
     position: relative;
     padding-bottom: 65px;
+    @media (max-width: 1110px) {
+      justify-content: unset;
+      flex-direction: column;
+    }
 
     &-items {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      @media (max-width: 1110px) {
+        align-items: center;
+      }
 
       &-name {
         font-size: 26px;
@@ -106,9 +129,12 @@
       justify-content: flex-end;
       align-items: center;
       font-size: 18px;
+      @media (max-width: 1110px) {
+        justify-content: center;
+      }
     }
 
-    &+::after{
+    & + ::after {
       content: "";
       display: block;
       width: 100%;
@@ -116,6 +142,7 @@
       background-color: black;
       position: absolute;
       top: -33px;
+
       &:nth-last-child::after {
         content: none;
       }
