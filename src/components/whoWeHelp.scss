@@ -114,7 +114,9 @@
       @media (max-width: 1110px) {
         align-items: center;
       }
-
+      li{
+        text-align: center;
+      }
       &-name {
         font-size: 26px;
         padding-bottom: 4px;
@@ -130,6 +132,7 @@
       justify-content: flex-end;
       align-items: center;
       font-size: 18px;
+      text-align: center;
       @media (max-width: 1110px) {
         justify-content: center;
       }
