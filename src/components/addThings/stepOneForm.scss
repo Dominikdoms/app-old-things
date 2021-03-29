@@ -112,6 +112,7 @@
     width: 40px;
     border: 1px solid black;
     margin-right: 30px;
+    flex-shrink: 0;
   }
   .active{
     background-color: $color-yellow;

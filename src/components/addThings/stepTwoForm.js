@@ -1,5 +1,5 @@
 import React from "react"
-// import './stepTwoForm.scss'
+import './stepTwoForm.scss'
 import {StepThreeForm} from "./stepThreeForm";
 
 
@@ -34,7 +34,7 @@ export const StepTwoForm = ({numberOfBags, setNumberOfBags, page, setPage}) => {
                         </label>
 
                     </div>
-                    <div>
+                    <div className={"steps__form-buttons"}>
                         <button className={"btn-prev"}
                                 onClick={e => {
                             e.preventDefault();
