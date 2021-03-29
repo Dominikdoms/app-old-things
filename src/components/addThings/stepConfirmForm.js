@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-// import './stepConfirmFrom.scss'
+import './stepConfirmFrom.scss'
 import movementIcon from '../../assets/movement-Icon.png';
 import shirtIcon from '../../assets/shirt-icon.png';
 import {FirebaseContext} from "../../App";
@@ -75,10 +75,10 @@ export const StepConfirmForm = ({
 
 
     return (
-        <section className={"steps__form"}>
-            <div className={"steps__form-container"}>
-                <h2 className={"steps__form-four-header"}>Podsumowanie Twojej darowizny</h2>
-                <div className={"steps__form-section"}>
+        <section className={"steps__form-four"}>
+            <div className={"steps__form-four-container"}>
+                <h2 className={"steps__form-four-four-header"}>Podsumowanie Twojej darowizny</h2>
+                <div className={"steps__form-four-section"}>
                     <h3 className={"content-address-four__header top"}>Oddajesz:</h3>
                     <div className={"steps__form-four-things"}>
                         <img src={shirtIcon} alt={"movement icon"}/>
@@ -129,7 +129,7 @@ export const StepConfirmForm = ({
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className={"steps__form-buttons"}>
                     <button className={"btn-prev__confirm"}
                             onClick={e => {
                                 e.preventDefault();

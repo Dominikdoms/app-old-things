@@ -1,9 +1,13 @@
 @import "../../sass/settings/colors";
 @import "../../sass/settings/fonts";
+@import "../../sass/settings/mixins";
 
-.steps__form {
+.steps__form-four {
   width: 100%;
-  height: 800px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -81px;
 
 
   &-container {
@@ -17,17 +21,34 @@
     box-sizing: border-box;
     padding-left: 142px;
     background-image: url("../../assets/Background-Form.png");
+    @include mobile {
+      padding-left: 0;
+      display: flex;
+      align-items: center;
+    }
   }
 
   &-four-header {
+    width: 100%;
     font-weight: 600;
     font-size: 36px;
     font-family: $font-base;
     padding-top: 55px;
+    @include mobile {
+      font-size: 30px;
+      padding-bottom: 0;
+      width: 90%;
+    }
   }
 
   .top{
     padding-bottom: 10px;
+  }
+
+  &-section{
+    @include mobile {
+      width: 90%;
+    }
   }
 
  &-four-things{
@@ -72,6 +93,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @include mobile{
+    height: 230px;
+  }
+
 
 
   &__header {
@@ -79,23 +104,33 @@
     font-weight: 600;
     font-family: $font-base;
     padding-bottom: 20px;
+    @include mobile {
+      padding-bottom: 0;
+      padding-top: 10px;
+    }
   }
 
   &__data{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     p{
       font-size: 24px;
       font-family: $font-base;
       font-weight: 200;
       width: 104px;
+      padding-right: 10px;
     }
   }
 }
 
 .form-content-data {
   display: flex;
+  @include mobile {
+    width: 90%;
+    flex-direction: column;
+  }
 }
 
 
@@ -107,11 +142,18 @@
   flex-direction: column;
   justify-content: space-between;
   padding-left: 152px;
+  @include mobile {
+    padding-left: 0;
+    height: 168px;
+  }
 
   &__header {
     font-size: 24px;
     font-weight: 600;
     font-family: $font-base;
+    @include mobile{
+      padding-top: 10px;
+    }
   }
 
   &__data{
@@ -123,6 +165,7 @@
       font-family: $font-base;
       font-weight: 200;
       width: 104px;
+      padding-right: 10px;
     }
   }
 }
@@ -143,6 +186,9 @@
   background: none;
   border: 1px solid black;
   margin-bottom: 50px;
+  @include mobile {
+    margin-top: 40px;
+  }
 }
 
 .btn-prev__confirm {
@@ -153,6 +199,18 @@
   border: 1px solid black;
   margin-bottom: 50px;
   margin-right: 50px;
+  @include mobile {
+    margin-right: 0;
+  }
+}
+
+.steps__form-buttons {
+  @include mobile {
+    width: 90%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 }
 
 
