@@ -1,6 +1,6 @@
 import React from "react"
 import clx from "classnames"
-// import './stepThreeForm.scss';
+import './stepThreeForm.scss';
 
 
 export const StepThreeForm = ({
@@ -86,7 +86,7 @@ export const StepThreeForm = ({
                         />
                     </div>
 
-                    <div>
+                    <div className={"steps__form-buttons"}>
                         <button className={"btn-prev"}
                                 onClick={e => {
                                     e.preventDefault();
