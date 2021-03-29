@@ -1,50 +1,55 @@
 @import "../../sass/settings/fonts";
 @import "../../sass/settings/colors";
+@import "../../sass/settings/mixins";
 
 .contact {
   width: 100%;
   height: 982px;
 
-  .container {
-    max-width: 1900px;
+
+  &__container {
     width: 100%;
+    max-width: 1900px;
     margin: 0 auto;
     height: 100%;
     display: flex;
     flex-direction: column;
-    //justify-content: flex-end;
     align-items: flex-end;
     justify-content: space-between;
+    position: relative;
 
-    .img {
-      max-width: 1900px;
-      margin: 0 auto;
-      background-image: url("../../assets/Background Image.png");
-      background-repeat: no-repeat;
-      filter: opacity(0.3);
-      z-index: -99;
-      width: 100%;
-      height: 100%;
+    &::after{
+      content: '';
+      display: block;
       position: absolute;
+      opacity: 0.2;
+      height: 100%;
+      width: 100%;
+      background-image: url("../../assets/Background Image.png");
+      background-size: cover;
     }
   }
 
   &__content {
-    max-width: 528px;
     width: 100%;
+    max-width: 528px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-right: 142px;
+    margin-right: 6%;
     height: 500px;
     padding-top: 200px;
+    @include mobile{
+      margin-right: unset;
+    }
   }
 
   &__header {
     font-size: 38px;
     font-family: $font-base;
     padding-bottom: 96px;
-    //padding-bottom: 44px;
+    text-align: center;
+
 
     &::after {
       content: url("../../assets/Decoration.svg");
@@ -68,6 +73,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    z-index: 1;
 
     p {
       font-family: $font-base;
@@ -75,91 +81,100 @@
       padding-left: 2px;
       padding-bottom: 10px;
     }
-
-    &-desc-input {
-      display: flex;
-
-      p {
-        &::after {
-          content: "";
-          display: block;
-          width: 245px;
-          height: 1px;
-          background-color: black;
-          position: relative;
-          bottom: -31px;
-        }
-      }
-
-      p:nth-last-child(1) {
-        padding-left: 34px;
-      }
-    }
-
-    &-inputs {
-      display: flex;
-      justify-content: space-between;
-
-      input {
-        width: 246px;
-        border: none;
-        padding-bottom: 8px;
-        background-color: transparent;
-
-        &::placeholder {
-          font-size: 16px;
-          color: $color-placeholder;
-        }
-
-      }
-
-      &:nth-last-child(1) {
-        margin-left: 16px;
-      }
-    }
   }
-  .contact__errors{
+
+  .contact__form-section {
     display: flex;
     justify-content: space-between;
-    position: relative;
-    .contact__errors-name {
-      color: red;
-      font-size: 13px;
-      position: relative;
-      span{
-        display: block;
-        height: 1px;
-        width: 246px;
-        background-color: red;
-        position: relative;
-        top: -20px;
-      }
-    }
-    .contact__errors-email{
-      color: red;
-      font-size: 13px;
-      span{
-        display: block;
-        height: 1px;
-        width: 246px;
-        background-color: red;
-        position: relative;
-        top: -20px;
-      }
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 528px;
+    @include mobile{
+      width: 90%;
+      justify-content: center;
+      margin-left: 20px;
+      margin-right: 20px;
     }
   }
 
-  .contact__form-desc-area {
-    &::after {
-      content: "";
+  .input-name {
+    width: 100%;
+    max-width: 256px;
+    height: 70px;
+    .name-description-error {
+      font-size: 13px;
+      padding-top: 3px;
+      color: red;
+    }
+    input{
+      width: 100%;
+      max-width: 245px;
+      border: none;
+      opacity: 0.5
+    }
+    span{
       display: block;
-      width: 531px;
       height: 1px;
-      background-color: black;
-      position: relative;
-      bottom: -113px;
+      width: 100%;
+      margin-top: 3px;
+      background: black;
+    }
+    .error{
+      background-color: red;
     }
   }
+
+  .input-email{
+    width: 100%;
+    max-width: 256px;
+    height: 70px;
+    .email-description-error {
+      font-size: 13px;
+      padding-top: 3px;
+      color: red;
+    }
+    input{
+      width: 100%;
+      max-width: 245px;
+      border: none;
+      opacity: 0.5
+    }
+    span{
+      display: block;
+      height: 1px;
+      width: 100%;
+      margin-top: 3px;
+      background-color: black;
+    }
+    .error{
+      background-color: red;
+    }
+  }
+
+
+.input-message{
+  width: 100%;
+  padding-top: 40px;
+  .message-description-error {
+    font-size: 13px;
+    padding-top: 3px;
+    color: red;
+  }
+  span{
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin-top: 3px;
+    background-color: black;
+  }
+  .error{
+    background-color: red;
+  }
+}
+
+
+
+
 
   &__textarea {
     width: 100%;
@@ -167,33 +182,22 @@
     resize: none;
     padding-bottom: 8px;
     border: none;
-    background-color: transparent;
+    opacity: 0.5;
 
     &::placeholder {
       font-size: 16px;
-      color: $color-placeholder;
-    }
-
-    &-error{
-      color: red;
-      font-size: 13px;
-      span{
-        display: block;
-        height: 1px;
-        width: 531px;
-        background-color: red;
-        position: relative;
-        top: -18px;
-      }
     }
   }
 
+
   &__buttons {
+    width: 100%;
     display: flex;
     justify-content: flex-end;
 
     &-btn {
-      width: 150px;
+      width: 100%;
+      max-width: 150px;
       height: 50px;
       margin-top: 35px;
       border: 1px solid $color-dark-brown;
