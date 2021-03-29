@@ -69,9 +69,10 @@ export const HomeHeader = () => {
                             {authUser ? (
                                 <>
                                     {!isMobile && <li>{authUser.email}</li>}
-                                    <Link to="/">
+                                    {location.pathname === '/oddaj-rzeczy' && <Link to="/">
                                         <li>Start</li>
                                     </Link>
+                                    }
                                     {location.pathname === '/oddaj-rzeczy' ? (
                                         <LinkScroll to="addThings"
                                                     smooth={true}
