@@ -6,11 +6,11 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 22px;
-  @include mobile {
+  @include mobile{
     flex-direction: column-reverse;
   }
 
-  &__text {
+  &__text{
     font-size: 18px;
     font-family: $font-base;
     display: flex;
@@ -19,60 +19,27 @@
   }
 }
 
-.footer__icons {
+.footer__icons{
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
-  @include mobile {
+  margin-right: 6%;
+  @include mobile{
     justify-content: center;
     padding-bottom: 5px;
+    margin-right: 0;
   }
 
-
-  a {
+  a{
     color: black;
   }
-
-  &-insta {
+  &-insta{
     width: 30px;
     height: 30px;
     padding-left: 20px;
   }
-
-  &-facebook {
+  &-facebook{
     width: 30px;
     height: 30px;
   }
 }
-
-//
-//@import "../../sass/settings/fonts";
-//
-//.footer{
-//  padding-bottom: 20px;
-//
-//  &__container{
-//    margin: 0 auto;
-//    width: 100%;
-//    height: 30px;
-//    max-width: 1900px;
-//    display: flex;
-//  }
-//
-//  &__text{
-//    display: flex;
-//    justify-content: center;
-//  }
-//  //.footer__icons{
-//
-//  &__icons-insta{
-//    width: 20px;
-//    height: 30px;
-//  }
-//  .footer__icons-facebook{
-//    width: 30px;
-//    height: 30px;
-//  }
-//  //}
-//
-//}
