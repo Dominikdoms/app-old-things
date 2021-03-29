@@ -1,23 +1,33 @@
 @import "../../sass/settings/fonts";
+@import "../../sass/settings/mixins";
 
 .footer {
-  width: 60%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding-bottom: 22px;
+  @include mobile{
+    flex-direction: column-reverse;
+  }
+
   &__text{
     font-size: 18px;
     font-family: $font-base;
     display: flex;
-    align-items: center;
+    width: 100%;
+    justify-content: center;
   }
 }
 
 .footer__icons{
-  width: 75px;
+  width: 100%;
   display: flex;
   flex-direction: row-reverse;
   padding-right: 142px;
+  @include mobile{
+    justify-content: center;
+    padding-bottom: 5px;
+  }
 
 
   a{
@@ -33,3 +43,35 @@
     height: 30px;
   }
 }
+
+//
+//@import "../../sass/settings/fonts";
+//
+//.footer{
+//  padding-bottom: 20px;
+//
+//  &__container{
+//    margin: 0 auto;
+//    width: 100%;
+//    height: 30px;
+//    max-width: 1900px;
+//    display: flex;
+//  }
+//
+//  &__text{
+//    display: flex;
+//    justify-content: center;
+//  }
+//  //.footer__icons{
+//
+//  &__icons-insta{
+//    width: 20px;
+//    height: 30px;
+//  }
+//  .footer__icons-facebook{
+//    width: 30px;
+//    height: 30px;
+//  }
+//  //}
+//
+//}

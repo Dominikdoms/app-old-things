@@ -113,7 +113,7 @@ export const Contact = () => {
                         </div>
                     </form>
                 </div>
-                {/*<Footer/>*/}
+                <Footer/>
             </div>
         </section>
     )
