@@ -1,5 +1,5 @@
 import React from "react";
-// import './stepFourFrom.scss';
+import './stepFourFrom.scss';
 
 export const StepFourForm = ({
                                  pickUpStreet, setPickUpStreet,
@@ -23,7 +23,7 @@ export const StepFourForm = ({
             </section>
             <section className={"steps__form"}>
                 <div className={"steps__form-container"}>
-                    <div>
+                    <div className={"steps__form-elements"}>
                         <p className={"steps__form-count"}>Krok {page}/4</p>
                         <h2 className={"steps__form-header"}>Podaj adres oraz termin odbioru rzecz przez kuriera</h2>
                         <section className={"content-courier"}>
@@ -84,8 +84,7 @@ export const StepFourForm = ({
                         </section>
                     </div>
 
-
-                    <div>
+                    <div className={"steps__form-buttons"}>
                         <button className={"btn-prev"}
                                 onClick={e => {
                                     e.preventDefault();
