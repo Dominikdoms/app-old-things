@@ -101,7 +101,7 @@
     @include mobile{
       width: 90%;
       display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
       align-items: center;
     }
   }
@@ -137,18 +137,21 @@
   }
 }
 
-.btn-next{
+.btn-next {
   font-size: 24px;
   width: 180px;
   height: 79px;
   background: none;
   border: 1px solid black;
   margin-bottom: 50px;
+  @include mobile{
+    margin-top: 40px;
+  }
 }
-.btn-prev{
-  width: 100%;
+
+.btn-prev {
   font-size: 24px;
-  max-width: 180px;
+  width: 180px;
   height: 79px;
   background: none;
   border: 1px solid black;
