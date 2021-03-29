@@ -5,6 +5,7 @@
   position: relative;
   display: flex;
   width: 100%;
+  z-index: 10;
 
   &__container {
     margin: 0 auto;
@@ -67,6 +68,7 @@
     align-items: center;
     width: 100%;
     max-width: 678px;
+    z-index: 5;
     @include mobile{
       padding-right: unset;
     }
