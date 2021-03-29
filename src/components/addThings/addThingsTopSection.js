@@ -1,21 +1,7 @@
 import React from "react";
-import {
-    Link
-} from 'react-router-dom';
-import {Link as LinkScroll, animateScroll as scroll} from "react-scroll";
-import clx from "classnames"
 import './addThingsTopSection.scss';
-import sweater from "../../assets/Header-Form-Background.png";
-import Firebase from "../firebaseData";
-// import Firebase from "../firebaseData";
-const firebase = new Firebase()
-export const AddThingsTopSection = ({authUser, setAuthUser}) => {
-    const handleLogout = () => {
-        setAuthUser('');
-        firebase.auth.signOut();
-        localStorage.clear();
-    };
 
+export const AddThingsTopSection = () => {
     return (
         <header className={"add-things"}>
             <div className={"add-things__container container"}>
