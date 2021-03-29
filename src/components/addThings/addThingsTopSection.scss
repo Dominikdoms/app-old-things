@@ -12,7 +12,9 @@
   }
 
   &__container {
-    margin: 0 auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: -81px;
     background-image: url("../../assets/Header-Form-Background.png");
     background-repeat: no-repeat;
     background-size: contain;
