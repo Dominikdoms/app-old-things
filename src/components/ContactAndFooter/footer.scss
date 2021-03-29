@@ -6,11 +6,11 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 22px;
-  @include mobile{
+  @include mobile {
     flex-direction: column-reverse;
   }
 
-  &__text{
+  &__text {
     font-size: 18px;
     font-family: $font-base;
     display: flex;
@@ -19,26 +19,27 @@
   }
 }
 
-.footer__icons{
+.footer__icons {
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
-  padding-right: 142px;
-  @include mobile{
+  @include mobile {
     justify-content: center;
     padding-bottom: 5px;
   }
 
 
-  a{
+  a {
     color: black;
   }
-  &-insta{
+
+  &-insta {
     width: 30px;
     height: 30px;
     padding-left: 20px;
   }
-  &-facebook{
+
+  &-facebook {
     width: 30px;
     height: 30px;
   }
