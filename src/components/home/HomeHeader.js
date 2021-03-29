@@ -69,7 +69,7 @@ export const HomeHeader = () => {
                             {authUser ? (
                                 <>
                                     {!isMobile && <li>{authUser.email}</li>}
-                                    {location.pathname === '/oddaj-rzeczy' && <Link to="/">
+                                    {!isMobile && location.pathname === '/oddaj-rzeczy' && <Link to="/">
                                         <li>Start</li>
                                     </Link>
                                     }
