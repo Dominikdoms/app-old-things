@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import {
-    Link
+    Link, useLocation
 } from 'react-router-dom';
 import {Link as LinkScroll} from "react-scroll";
 import clx from "classnames"
@@ -9,6 +9,7 @@ import {FirebaseContext} from "../../App";
 import HamburgerMenu from 'react-hamburger-menu';
 
 export const HomeHeader = () => {
+    const location = useLocation()
     const {firebase, authUser, setAuthUser} = useContext(FirebaseContext)
 
     const handleLogout = () => {
@@ -22,7 +23,7 @@ export const HomeHeader = () => {
 
     const handleShowMenu = e => {
         e.preventDefault();
-        setShowMenu(!showMenu);
+        isMobile && setShowMenu(!showMenu);
     }
 
     const checkMobile = () => {
@@ -41,8 +42,9 @@ export const HomeHeader = () => {
         })
     }, [])
 
+
     return (
-        <header className={clx({burgerOpen: showMenu},"header")}>
+        <header className={clx({burgerOpen: showMenu}, "header")}>
             <div className={"header__container container"}>
                 <section className={"header__start"}>
                     {isMobile &&
@@ -67,47 +69,76 @@ export const HomeHeader = () => {
                             {authUser ? (
                                 <>
                                     {!isMobile && <li>{authUser.email}</li>}
-                                    <Link to="/oddaj-rzeczy">
-                                        <li className={"header__registration-btn"}>Oddaj rzeczy</li>
+                                    <Link to="/">
+                                        <li>Start</li>
                                     </Link>
-                                    <Link to="/wylogowano"><li onClick={handleLogout}>wyloguj</li></Link>
+                                    {location.pathname === '/oddaj-rzeczy' ? (
+                                        <LinkScroll to="addThings"
+                                                    smooth={true}
+                                                    duration={500}
+                                                    onClick={handleShowMenu}
+                                        >
+                                            <li className={"header__registration-btn"}>Oddaj rzeczy</li>
+                                        </LinkScroll>
+                                    ) : (
+                                        <Link to="/oddaj-rzeczy">
+                                            <li className={"header__registration-btn"}>Oddaj rzeczy</li>
+                                        </Link>
+                                    )}
+                                    <Link to="/wylogowano">
+                                        <li onClick={handleLogout}>wyloguj</li>
+                                    </Link>
                                 </>
                             ) : (
                                 <>
-                                <Link to="/logowanie"><li>Zaloguj</li>
-                                </Link>
-                                <Link to="/rejestracja"><li className={"header__registration-btn"}>Załóż
-                                        konto</li></Link>
+                                    <Link to="/logowanie">
+                                        <li>Zaloguj</li>
+                                    </Link>
+                                    <Link to="/rejestracja">
+                                        <li className={"header__registration-btn"}>Załóż
+                                            konto
+                                        </li>
+                                    </Link>
                                 </>
                             )}
                         </ul>
                         <ul className={"header__navigation"}>
-                            <Link to="/"><li>Start</li></Link>
-                            <LinkScroll to="steps"
-                                        smooth={true}
-                                        duration={1000}
-                                        onClick={handleShowMenu}>
-                                <li>O co chodzi?</li>
-                            </LinkScroll>
+                            {location.pathname === "/oddaj-rzeczy" && isMobile &&
+                            <Link to="/">
+                                <li>Start</li>
+                                </Link>
+                            }
 
-                            <LinkScroll to="aboutUs"
-                                        smooth={true}
-                                        duration={1000}
-                                        onClick={handleShowMenu}>
-                                <li>O nas</li>
-                            </LinkScroll>
-                            <LinkScroll to="fundations"
-                                        smooth={true}
-                                        duration={1000}
-                                        onClick={handleShowMenu}>
-                                <li>Fundacja i Organizacje</li>
-                            </LinkScroll>
-                            <LinkScroll to="contact"
-                                        smooth={true}
-                                        duration={1000}
-                                        onClick={handleShowMenu}>
-                                <li>Kontakt</li>
-                            </LinkScroll>
+                            {location.pathname === "/" &&
+                            <>
+                                <LinkScroll to="steps"
+                                            smooth={true}
+                                            duration={1000}
+                                            onClick={handleShowMenu}
+                                >
+                                    <li>O co chodzi?</li>
+                                </LinkScroll>
+
+                                <LinkScroll to="aboutUs"
+                                            smooth={true}
+                                            duration={1000}
+                                            onClick={handleShowMenu}>
+                                    <li>O nas</li>
+                                </LinkScroll>
+                                <LinkScroll to="fundations"
+                                            smooth={true}
+                                            duration={1000}
+                                            onClick={handleShowMenu}>
+                                    <li>Fundacja i Organizacje</li>
+                                </LinkScroll>
+                                <LinkScroll to="contact"
+                                            smooth={true}
+                                            duration={1000}
+                                            onClick={handleShowMenu}>
+                                    <li>Kontakt</li>
+                                </LinkScroll>
+                            </>
+                            }
                         </ul>
                     </>
                     }
