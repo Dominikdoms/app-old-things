@@ -28,32 +28,6 @@
     align-items: flex-end;
     flex-direction: column;
     height: 130px;
-
-    a {
-      text-decoration: none;
-      color: black;
-    }
-
-    .navigation__login {
-      width: 100%;
-      max-width: 288px;
-      padding: 24px 52px 24px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      a {
-        color: $color-gray;
-      }
-    }
-    .navigation__login-start{
-      padding: 10px;
-      &:hover {
-        cursor: pointer;
-        padding: 9px;
-        border: 1px solid $color-gray;
-      }
-    }
   }
 }
 
