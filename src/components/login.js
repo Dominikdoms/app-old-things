@@ -3,9 +3,9 @@ import {
     Link, useHistory
 } from 'react-router-dom';
 import clx from "classnames"
-// import './login.scss'
+import './login.scss'
 import {FirebaseContext} from "../App";
-
+import {HomeHeader} from "./home/HomeHeader";
 
 export const Login = () => {
     const history = useHistory();
@@ -53,14 +53,7 @@ export const Login = () => {
     return (
         <nav className={"navigation"}>
             <div className={"navigation__container container"}>
-                <section className={"navigation__start"}>
-                    <ul className={"navigation__login"}>
-                        <li className={"navigation__login-start"}><Link to="/">Start</Link></li>
-                        <li><Link to="/logowanie">Zaloguj</Link></li>
-                        <Link to="/rejestracja"><li className={"navigation__registration-btn"}>Załóż konto</li></Link>
-                    </ul>
-                </section>
-
+                <HomeHeader/>
                 <form onSubmit={onSubmit} className={"login"}>
                     <section className={"login"}>
                         <header>
