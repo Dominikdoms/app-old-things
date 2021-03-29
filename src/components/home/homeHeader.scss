@@ -7,6 +7,7 @@
   display: flex;
   width: 100%;
   height: 81px;
+  z-index: 99;
 
 
   &__registration-btn {
@@ -91,7 +92,7 @@
     }
 
     .header__email {
-      max-width: 365px;
+      max-width: 443px;
       @include mobile {
         max-width: none;
       }
@@ -114,10 +115,10 @@
       }
 
       li {
-
+        padding: 9px;
         &:hover {
           cursor: pointer;
-          padding: 9px;
+          padding: 8px;
           border: 1px solid $color-gray;
           @include mobile {
             padding: unset;
