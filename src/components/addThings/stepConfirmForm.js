@@ -69,16 +69,15 @@ export const StepConfirmForm = ({
     const addDate = () => {
         const randomID = Math.random().toString(36).substr(2, 9);
         firebase.db.collection(`Users/${firebase.auth.currentUser.uid}/thingsCollection`).doc(randomID).set(collection)
-            // .then(data => console.log("success"))
             .catch(err => console.log(err));
     }
 
 
     return (
-        <section className={"steps__form"}>
-            <div className={"steps__form-container"}>
-                <h2 className={"steps__form-four-header"}>Podsumowanie Twojej darowizny</h2>
-                <div className={"steps__form-section"}>
+        <section className={"steps__form-four"}>
+            <div className={"steps__form-four-container"}>
+                <h2 className={"steps__form-four-four-header"}>Podsumowanie Twojej darowizny</h2>
+                <div className={"steps__form-four-section"}>
                     <h3 className={"content-address-four__header top"}>Oddajesz:</h3>
                     <div className={"steps__form-four-things"}>
                         <img src={shirtIcon} alt={"movement icon"}/>
@@ -129,7 +128,7 @@ export const StepConfirmForm = ({
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className={"steps__form-buttons"}>
                     <button className={"btn-prev__confirm"}
                             onClick={e => {
                                 e.preventDefault();

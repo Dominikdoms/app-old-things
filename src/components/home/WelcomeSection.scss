@@ -1,0 +1,134 @@
+@import "../../sass/settings/colors";
+@import "../../sass/settings/mixins";
+
+.welcome {
+  position: relative;
+  display: flex;
+  width: 100%;
+  z-index: 10;
+
+  &__container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1833px;
+    height: 855px;
+    display: flex;
+    justify-content: flex-end;
+    background-image: url("../../assets/Hero-Image.png");
+    background-position-x: -331px;
+    background-position-y: -46px;
+    background-repeat: no-repeat;
+    background-size: 1283px auto;
+    z-index: -1;
+
+    @media (max-width: 1513px){
+      position: relative;
+      background-image: none;
+      justify-content: center;
+      &::after{
+        content: ' ';
+        display: block;
+        position: absolute;
+        top: 0;
+        opacity: 0.2;
+        height: 100%;
+        width: 100%;
+        background-image: url("../../assets/Hero-Image.png");
+        background-position-x: -331px;
+        background-position-y: -46px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 3;
+      }
+    }
+
+  }
+
+
+  &__start {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 100%;
+    @include mobile{
+      align-items: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  &__give-things {
+    padding-top: 158px;
+    padding-right: 51px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 678px;
+    z-index: 5;
+    @include mobile{
+      padding-right: unset;
+    }
+
+    h1 {
+      font-size: 38px;
+      line-height: 49px;
+      text-align: center;
+      position: relative;
+
+      &::after {
+        position: relative;
+        content: "";
+        display: block;
+        width: 256px;
+        height: 30px;
+        background-image: url("../../assets/Decoration.svg");
+        color: black;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+        top: 18px;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 80px;
+    @include mobile{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    max-width: 310px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    text-align: center;
+    border: 2px solid gray;
+    background: none;
+    @include mobile{
+      height: 77px;
+      width: 80%;
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
+
+    a {
+      color: gray;
+      @include mobile{
+        color: black;
+      }
+    }
+  }
+}

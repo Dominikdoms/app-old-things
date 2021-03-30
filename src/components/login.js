@@ -5,27 +5,22 @@ import {
 import clx from "classnames"
 import './login.scss'
 import {FirebaseContext} from "../App";
-
+import {HomeHeader} from "./home/HomeHeader";
 
 export const Login = () => {
     const history = useHistory();
-
     const {firebase} = useContext(FirebaseContext)
-
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     //firebase
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    // console.log(emailError)
-    // console.log(passwordError)
 
     const onSubmit = (e) => {
         e.preventDefault()
         console.log(e);
-        firebase.doSignInWithEmailAndPassword(email, password)//dane z inputów
-            // .then(data => console.log(data))
+        firebase.doSignInWithEmailAndPassword(email, password)
             .then( () => history.push("/"))
             .catch(err => {
                 switch(err.code) {
@@ -43,24 +38,14 @@ export const Login = () => {
                     //
                 }
             })
-
-
         setEmail('')
         setPassword('')
     }
 
-
     return (
         <nav className={"navigation"}>
             <div className={"navigation__container container"}>
-                <section className={"navigation__start"}>
-                    <ul className={"navigation__login"}>
-                        <li className={"navigation__login-start"}><Link to="/">Start</Link></li>
-                        <li><Link to="/logowanie">Zaloguj</Link></li>
-                        <Link to="/rejestracja"><li className={"navigation__registration-btn"}>Załóż konto</li></Link>
-                    </ul>
-                </section>
-
+                <HomeHeader/>
                 <form onSubmit={onSubmit} className={"login"}>
                     <section className={"login"}>
                         <header>

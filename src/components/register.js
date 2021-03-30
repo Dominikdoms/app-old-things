@@ -9,6 +9,7 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import {FirebaseContext} from "../App";
+import {HomeHeader} from "./home/HomeHeader";
 
 
 const schema = yup.object().shape({
@@ -69,14 +70,7 @@ export const Register = () => {
     return (
         <nav className={"navigation"}>
             <div className={"navigation__container container"}>
-                <section className={"navigation__start"}>
-                    <ul className={"navigation__login"}>
-                        <li className={"navigation__login-start"}><Link to="/">Start</Link></li>
-                        <li><Link to="/logowanie">Zaloguj</Link></li>
-                        <Link to="/rejestracja"><li className={"navigation__registration-btn"}>Załóż konto</li></Link>
-                    </ul>
-                </section>
-
+                    <HomeHeader/>
                 <form onSubmit={handleSubmit(onSubmit)} className={"register"}>
                     <section className={"register"}>
                         <header>

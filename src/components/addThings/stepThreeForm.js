@@ -86,7 +86,7 @@ export const StepThreeForm = ({
                         />
                     </div>
 
-                    <div>
+                    <div className={"steps__form-buttons"}>
                         <button className={"btn-prev"}
                                 onClick={e => {
                                     e.preventDefault();

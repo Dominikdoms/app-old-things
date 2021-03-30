@@ -1,33 +1,35 @@
 @import "../../sass/settings/colors";
 @import "../../sass/settings/fonts";
+@import "../../sass/settings/mixins";
 
-.steps__form {
+.final__form {
   width: 100%;
   height: 800px;
+  margin-top: -110px;
+}
 
-
-
-  &-container-final {
+.final__form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: 1900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-left: 142px;
+  background-image: url("../../assets/Background-Form.png");
+  @include mobile {
+    padding-left: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-    max-width: 1900px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    padding-left: 142px;
-    background-image: url("../../assets/Background-Form.png");
+    align-items: center;
   }
 }
 
+  .steps-final {
+    width: 90%;
 
-.steps__form-container-final{
-  display: flex;
-  justify-content: center;
-
-  .steps-final{
-    h1{
+    h1 {
       font-size: 40px;
       font-family: $font-base;
       width: 100%;
@@ -36,13 +38,14 @@
       text-align: center;
       display: flex;
       flex-direction: column-reverse;
-      &::before{
+
+      &::before {
         padding-top: 30px;
         content: url("../../assets/Decoration.svg");
       }
     }
   }
-}
+
 
 
 

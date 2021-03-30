@@ -1,5 +1,5 @@
 import React from "react";
-import People from "../assets/People.png"
+import Signature from "../assets/Signature.svg"
 import './aboutUs.scss'
 
 export const AboutUs = () => {
@@ -11,10 +11,9 @@ export const AboutUs = () => {
                     <h3>O nas</h3>
                     <p>Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts
                         black-eyed pea prairie turnip leek lentil turnip greens parsnip.</p>
+                    <img className={"about__signature"} src={Signature} alt="Signature"/>
                 </div>
-                <div className={"about__image"}>
-                    <img className={"about__img"} src={People} alt="people"/>
-                </div>
+                <div className={"about__background"}/>
             </div>
         </section>
     )

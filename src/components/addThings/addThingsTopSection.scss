@@ -1,92 +1,68 @@
 @import "../../sass/settings/colors";
 @import "../../sass/settings/fonts";
+@import "../../sass/settings/mixins";
 
 .add-things {
   position: relative;
   display: flex;
   width: 100%;
-
-  &__registration-btn {
-    padding: 11px;
-    border: 1px solid $color-yellow;
-  }
+  height: 100%;
+  min-height: 853px;
 
   &__container {
-    margin: 0 auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: -81px;
     background-image: url("../../assets/Header-Form-Background.png");
     background-repeat: no-repeat;
-    background-size: contain;
     width: 100%;
     max-width: 1900px;
-    height: 963px;
+    min-height: 963px;
     display: flex;
     justify-content: flex-end;
+    position: relative;
+    @media (max-width: 1362px){
+      background-image: unset;
+      &::after{
+        content: '';
+        display: block;
+        position: absolute;
+        margin-top: -81px;
+        background-image: url("../../assets/Header-Form-Background.png");
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+        z-index: 5;
+      }
+    }
   }
 
 
   &__start {
-    width: 50%;
+    width: 100%;
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-
-    a {
-      text-decoration: none;
-      color: black;
-    }
-
-    .add-things__login {
-      width: 100%;
-      max-width: 196px;
-      padding: 24px 52px 24px 0;
-      display: flex;
-      justify-content: space-between;
+    @include mobile{
       align-items: center;
-
-      a {
-        color: $color-gray;
-      }
-    }
-    .addThingsEmail{
-      max-width: 449px;
-    }
-    .add-things__navigation {
-      width: 78%;
-      height: 30px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding-right: 52px;
-
-
-      li {
-        padding: 10px;
-
-        &:hover {
-          cursor: pointer;
-          padding: 9px;
-          border: 1px solid $color-gray;
-        }
-      }
-
-    }
-    .navigation__login-start{
-      padding: 10px;
-      &:hover {
-        cursor: pointer;
-        padding: 9px;
-        border: 1px solid $color-gray;
-      }
     }
   }
 
   &__give-things {
-    padding-top: 19%;
-    padding-right: 19%;
+    padding-top: 190px;
+    margin-right: 6%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 72%;
+    width: 90%;
+    max-width: 720px;
+    @include mobile {
+      width: 80%;
+      padding-top: 52px;
+      margin-right: 0;
+      max-width: 648px;
+    }
 
     h1 {
       font-size: 38px;
@@ -94,12 +70,16 @@
       text-align: center;
       position: relative;
       font-family: $font-base;
+      @media (max-width: 316px) {
+        font-size: 25px;
+      }
 
       &::after {
         position: relative;
         content: "";
         display: block;
-        width: 256px;
+        width: 100%;
+        max-width: 256px;
         height: 30px;
         background-image: url("../../assets/Decoration.svg");
         color: black;
@@ -114,13 +94,27 @@
       font-family: $font-base;
       font-weight: 300;
       padding-top: 73px;
+      text-align: center;
+      @media (max-width: 316px) {
+        font-size: 30px;
+        padding-top: 54px;
+      }
     }
   }
 }
 
 .add-things__give-things-steps {
+  width: 90%;
+  height: 100%;
   display: flex;
   padding-top: 65px;
+  flex-wrap: wrap;
+  justify-content: center;
+  @media (max-width: 484px) {
+    font-size: 20px;
+    padding-top: 25px;
+  }
+
 }
 
 .rhombus {
@@ -129,6 +123,12 @@
   border: 1px solid black;
   transform: rotate(45deg);
   margin: 10px;
+  @media (max-width: 484px) {
+    width: 100%;
+    max-width: 80px;
+    height: 100%;
+    max-height: 80px;
+  }
 
   &-content {
     transform: rotate(-45deg);
@@ -144,12 +144,19 @@
       font-size: 32px;
       font-weight: 200;
       padding-bottom: 14px;
+      @media (max-width: 484px) {
+        font-size: 20px;
+      }
     }
 
     p {
       font-size: 22px;
       font-weight: 200;
       width: 105px;
+      @media (max-width: 484px) {
+        font-size: 15px;
+        width: 87px;
+      }
     }
   }
 }

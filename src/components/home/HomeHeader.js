@@ -1,16 +1,15 @@
 import React, {useContext, useState, useEffect} from "react";
 import {
-    Link
+    Link, useLocation
 } from 'react-router-dom';
 import {Link as LinkScroll} from "react-scroll";
 import clx from "classnames"
 import "./homeHeader.scss"
-import HeroImage from "../../assets/Hero-Image.png"
 import {FirebaseContext} from "../../App";
 import HamburgerMenu from 'react-hamburger-menu';
 
 export const HomeHeader = () => {
-    //hooks only work inside the component
+    const location = useLocation()
     const {firebase, authUser, setAuthUser} = useContext(FirebaseContext)
 
     const handleLogout = () => {
@@ -24,7 +23,7 @@ export const HomeHeader = () => {
 
     const handleShowMenu = e => {
         e.preventDefault();
-        setShowMenu(!showMenu);
+        isMobile && setShowMenu(!showMenu);
     }
 
     const checkMobile = () => {
@@ -43,14 +42,11 @@ export const HomeHeader = () => {
         })
     }, [])
 
-    return (
-        <header className={"header"}>
-            <div className={"header__container container"}>
-                <section className="header__img">
-                    <img alt={"things"} src={HeroImage}/>
-                </section>
-                <section className={"header__start"}>
 
+    return (
+        <header className={clx({burgerOpen: showMenu}, "header")}>
+            <div className={"header__container container"}>
+                <section className={"header__start"}>
                     {isMobile &&
                     <div className="mobile-menubar">
                         <HamburgerMenu
@@ -72,51 +68,81 @@ export const HomeHeader = () => {
                         <ul className={clx({header__email: authUser}, "header__login")}>
                             {authUser ? (
                                 <>
-                                    <li>{authUser.email}</li>
-                                    <Link to="/oddaj-rzeczy">
-                                        <li className={"header__registration-btn"}>Oddaj rzeczy</li>
+                                    {!isMobile && <li>{authUser.email}</li>}
+                                    {!isMobile && location.pathname === '/oddaj-rzeczy' && <Link to="/">
+                                        <li>Start</li>
                                     </Link>
-                                    <li onClick={handleLogout}><Link to="/wylogowano">wyloguj</Link></li>
+                                    }
+                                    {location.pathname === '/oddaj-rzeczy' ? (
+                                        <LinkScroll to="addThings"
+                                                    smooth={true}
+                                                    duration={500}
+                                                    onClick={handleShowMenu}
+                                        >
+                                            <li className={"header__registration-btn"}>Oddaj rzeczy</li>
+                                        </LinkScroll>
+                                    ) : (
+                                        <Link to="/oddaj-rzeczy">
+                                            <li className={"header__registration-btn"}>Oddaj rzeczy</li>
+                                        </Link>
+                                    )}
+                                    <Link to="/wylogowano">
+                                        <li onClick={handleLogout}>wyloguj</li>
+                                    </Link>
                                 </>
                             ) : (
                                 <>
-                                    <li><Link to="/logowanie">Zaloguj</Link></li>
-                                    <li className={"header__registration-btn"}><Link to="/rejestracja">Załóż
-                                        konto</Link>
-                                    </li>
+                                    <Link to="/logowanie">
+                                        <li>Zaloguj</li>
+                                    </Link>
+                                    <Link to="/rejestracja">
+                                        <li className={"header__registration-btn"}>Załóż
+                                            konto
+                                        </li>
+                                    </Link>
                                 </>
                             )}
                         </ul>
                         <ul className={"header__navigation"}>
-                            <li><Link to="/" smooth={true} duration={1000}>Start</Link></li>
-                            <li><LinkScroll to="steps" smooth={true} duration={1000}>O co chodzi?</LinkScroll></li>
-                            <li><LinkScroll to="aboutUs" smooth={true} duration={1000}>O nas</LinkScroll></li>
-                            <li><LinkScroll to="fundations" smooth={true} duration={1000}>Fundacja i
-                                Organizacje</LinkScroll></li>
-                            <li><LinkScroll to="contact" smooth={true} duration={1000}>Kontakt</LinkScroll></li>
+                            {location.pathname === "/oddaj-rzeczy" && isMobile &&
+                            <Link to="/">
+                                <li>Start</li>
+                                </Link>
+                            }
+
+                            {location.pathname === "/" &&
+                            <>
+                                <LinkScroll to="steps"
+                                            smooth={true}
+                                            duration={1000}
+                                            onClick={handleShowMenu}
+                                >
+                                    <li>O co chodzi?</li>
+                                </LinkScroll>
+
+                                <LinkScroll to="aboutUs"
+                                            smooth={true}
+                                            duration={1000}
+                                            onClick={handleShowMenu}>
+                                    <li>O nas</li>
+                                </LinkScroll>
+                                <LinkScroll to="fundations"
+                                            smooth={true}
+                                            duration={1000}
+                                            onClick={handleShowMenu}>
+                                    <li>Fundacja i Organizacje</li>
+                                </LinkScroll>
+                                <LinkScroll to="contact"
+                                            smooth={true}
+                                            duration={1000}
+                                            onClick={handleShowMenu}>
+                                    <li>Kontakt</li>
+                                </LinkScroll>
+                            </>
+                            }
                         </ul>
                     </>
                     }
-                    <section className={"header__give-things"}>
-                        <h1>Zacznij Pomagać! <br/> Oddaj niechciane rzeczy w zaufane ręce</h1>
-                        <ul className={"header__buttons"}>
-                            {authUser ? (
-                                <>
-                                    <button className={"header__btn"}><Link
-                                        to={"/oddaj-rzeczy"}>ODDAJ <br/> RZECZ</Link></button>
-                                    <button className={"header__btn"}><Link to={"/"}>ZORGANIZUJ ZBIÓRKĘ</Link></button>
-                                </>
-                            ) : (
-                                <>
-                                    <button className={"header__btn"}><Link to={"/logowanie"}>ODDAJ <br/> RZECZ</Link>
-                                    </button>
-                                    <button className={"header__btn"}><Link to={"/logowanie"}>ZORGANIZUJ ZBIÓRKĘ</Link>
-                                    </button>
-                                </>
-                            )}
-
-                        </ul>
-                    </section>
                 </section>
             </div>
         </header>

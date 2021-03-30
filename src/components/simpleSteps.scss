@@ -1,17 +1,24 @@
 @import "../sass/settings/fonts";
 @import "../sass/settings/colors";
+@import "../sass/settings/mixins";
 .steps{
   width: 100%;
   height: 624px;
   padding-top: 55px;
 
+  @include mobile{
+    height: 816px;
+  }
 
 
   &__header{
+    width: 100%;
+    height: 20%;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 38px;
+    text-align: center;
     font-family: $font-base;
 
     &::after {
@@ -29,22 +36,33 @@
   }
 
   &__four{
+    width: 100%;
     height: 325px;
     background-color: $color-light-gray;
-    padding: 0 19%;
+    display: flex;
+    justify-content: center;
     align-items: center;
+
+    @include mobile{
+      height: 446px;
+    }
     .container{
-      margin: 0 auto;
-      max-width: 1900px;
+      width: 100%;
+      max-width: 1416px;
       height: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-evenly;
+
+      @include mobile{
+        flex-wrap: wrap;
+      }
     }
   }
 
   &__one{
-    width: 128px;
+    width: 100%;
+    max-width: 128px;
     height: 178px;
     display: flex;
     flex-direction: column;
@@ -52,6 +70,10 @@
     font-family: $font-base;
     font-size: 16px;
     justify-content: flex-end;
+@include mobile{
+  width: 50%;
+  max-width: 269px;
+}
 
     p{
       text-align: center;
@@ -97,15 +119,33 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+
+    a{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
   }
   &__btn{
-    width: 310px;
+    width: 100%;
+    max-width: 310px;
     height: 120px;
     border: 1px solid black;
     font-size: 36px;
     background: none;
     font-weight: 300;
     color: $color-dark-brown;
+
+    @include mobile{
+      width: 80%;
+      max-width: 300px;
+      height: 70px;
+      font-size: 20px;
+      color: black;
+
+    }
   }
 }
 

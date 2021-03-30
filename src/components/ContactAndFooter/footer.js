@@ -7,7 +7,7 @@ import {ReactComponent as Facebook} from '../../assets/facebook-square-brands.sv
 export const Footer = () => {
 
     return (
-        <div className={"footer"}>
+        <div className={"footer footer__container"}>
 
             <p className={"footer__text"}>Copyright by Coders Lab</p>
             <div className={"footer__icons"}>
