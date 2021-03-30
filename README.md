@@ -41,7 +41,7 @@ Kliknij w link i opomagaj: https://old-things-55116.web.app/
 - React Form
 - React Hooks
 - React Hamburger menu
-  React Context API
+- React Context API
 - Formularz kontrolowany
 - Paginacja stron
 - Node Sass
