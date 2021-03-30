@@ -69,7 +69,6 @@ export const StepConfirmForm = ({
     const addDate = () => {
         const randomID = Math.random().toString(36).substr(2, 9);
         firebase.db.collection(`Users/${firebase.auth.currentUser.uid}/thingsCollection`).doc(randomID).set(collection)
-            // .then(data => console.log("success"))
             .catch(err => console.log(err));
     }
 
