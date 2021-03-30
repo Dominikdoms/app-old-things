@@ -37,7 +37,7 @@
   flex-direction: column;
   align-self: center;
   align-items: center;
-
+  z-index: 99;
   h1 {
     font-size: 36px;
     font-family: $font-base;
