@@ -15,7 +15,11 @@ hasło: ```123456```
 
 Kliknij w link i opomagaj: https://old-things-55116.web.app/
 
-![demo screenshot](/images/demo_screen_level10_new.png)
+![demo screenshot](./src/assets/readMe/landingPage)
+![demo screenshot](./src/assets/readMe/form)
+![demo screenshot](./src/assets/readMe/landingPageMobile)
+![demo screenshot](./src/assets/readMe/registar)
+
 
 ## 💥 Aplikacja
 
