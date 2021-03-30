@@ -14,14 +14,14 @@ export const StepTwoForm = ({numberOfBags, setNumberOfBags, page, setPage}) => {
                         instrukcję jak poprawnie spakować rzeczy znajdziesz TUTAJ.</p>
                 </div>
             </section>
-            <section className={"steps__form"}>
-                <div className={"steps__form-container"}>
-                    <div className={"steps__form-content"}>
-                        <p className={"steps__form-count"}>Krok {page}/4</p>
-                        <h2 className={"steps__form-header"}>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h2>
+            <section className={"steps__form-two"}>
+                <div className={"steps__form-two-container"}>
+                    <div className={"steps__form-two-content"}>
+                        <p className={"steps__form-two-count"}>Krok {page}/4</p>
+                        <h2 className={"steps__form-two-header"}>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h2>
 
-                        <label className={"steps__form-label"}>Liczba 60l worków: &nbsp; &nbsp;
-                            <select className={"steps__form-select"}
+                        <label className={"steps__form-two-label"}>Liczba 60l worków: &nbsp; &nbsp;
+                            <select className={"steps__form-two-select"}
                                     value={numberOfBags}
                                     onChange={e => setNumberOfBags(e.target.value)}>
                                 <option>— wybierz —</option>
