@@ -71,6 +71,7 @@
     z-index: 5;
     @include mobile{
       padding-right: unset;
+      padding-top: 42px;
     }
 
     h1 {
