@@ -3,7 +3,7 @@
 @import "../../sass/settings/mixins";
 
 .steps__warning {
-  margin-top: -80px;
+  margin-top: -110px;
   width: 100%;
   height: 179px;
   background-color: $color-yellow;
@@ -70,6 +70,9 @@
     font-family: $font-base;
     padding-top: 36px;
     padding-bottom: 70px;
+    @include mobile{
+
+    }
   }
 
   &-header {
@@ -77,6 +80,9 @@
     font-size: 36px;
     font-family: $font-base;
     padding-bottom: 40px;
+    @include mobile{
+      padding-bottom: 22px;
+    }
   }
 
   &-content{
