@@ -52,7 +52,7 @@ hasło: ```123456```
 - Walidacja danych
 
 
-#⬇ Jak zainstalować:
+##⬇ Jak zainstalować:
 1. ``` https://github.com/Dominikdoms/app-old-things.git ```
 2. ```  cd app-old-things ```
 3. ``` npm i ```
