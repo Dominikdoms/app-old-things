@@ -13,9 +13,10 @@ hasło: ```123456```
 
 ## 🐶 Dostępność
 
-Kliknij w link i opomagaj: https://old-things-55116.web.app/
-
+```Kliknij w link i opomagaj:``` https://old-things-55116.web.app/
+### Landing page 
 ![demo screenshot](./src/assets/readMe/landingPage)
+### Formularz po zalogowaniu 
 ![demo screenshot](./src/assets/readMe/form)
 
 
@@ -51,7 +52,7 @@ Kliknij w link i opomagaj: https://old-things-55116.web.app/
 - Walidacja danych
 
 
-# Jak zainstalować:
+#⬇ Jak zainstalować:
 1. ``` https://github.com/Dominikdoms/app-old-things.git ```
 2. ```  cd app-old-things ```
 3. ``` npm i ```
