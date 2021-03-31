@@ -4,16 +4,17 @@
 oraz przekazywania paczek z rzeczami codziennego użytku, które nie są już nam potrzebne.
 
 
-Dane do logowania na konto testowe:
-
-login: ```test@test.com```
-hasło: ```123456```
 
 
 
 ## 🐶 Dostępność
 
 ```Kliknij w link i opomagaj:``` https://old-things-55116.web.app/
+
+Dane do logowania na konto testowe:
+
+login: ```test@test.com```
+hasło: ```123456```
 ### Landing page 
 ![demo screenshot](./src/assets/readMe/landingPage)
 ### Formularz po zalogowaniu 
