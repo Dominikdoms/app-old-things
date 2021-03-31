@@ -15,9 +15,9 @@ Dane do logowania na konto testowe:
 
 login: ```test@test.com```
 hasło: ```123456```
-### Landing page 
+### 🎀 Landing page 
 ![demo screenshot](./src/assets/readMe/landingPage)
-### Formularz po zalogowaniu 
+### 📝 Formularz po zalogowaniu 
 ![demo screenshot](./src/assets/readMe/form)
 
 
