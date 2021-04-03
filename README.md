@@ -51,6 +51,7 @@ hasło: ```123456```
 - Firebase Cloud Firestore
 - Firebase Hosting
 - Walidacja danych
+- BEM Methodology
 
 
 ## ⬇ Jak zainstalować:
