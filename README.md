@@ -51,10 +51,11 @@ hasło: ```123456```
 - Firebase Cloud Firestore
 - Firebase Hosting
 - Walidacja danych
+- BEM Methodology
 
 
 ## ⬇ Jak zainstalować:
-1. ``` https://github.com/Dominikdoms/app-old-things.git ```
-2. ```  cd app-old-things ```
+1. ``` git clone https://github.com/Dominikdoms/app-old-things.git ```
+2. ``` cd app-old-things ```
 3. ``` npm i ```
 4. ``` npm start ```
