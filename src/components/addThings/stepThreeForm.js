@@ -49,7 +49,7 @@ export const StepThreeForm = ({
                                        value={kids}
                                        onChange={() => setKids(!kids)}
                                 />
-                                <span className={clx({active: kids}, "checkbox-btn-kids")}>dziecion</span>
+                                <span className={clx({active: kids}, "checkbox-btn-kids")}>dzieciom</span>
                             </label>
                             <label className="checkbox-btn">
                                 <input type={"checkbox"}
